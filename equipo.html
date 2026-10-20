@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Equipo · UPCT Racing Team</title>
+  <meta name="description" content="Las personas del UPCT Racing Team por departamentos: marketing, motor, aerodinámica, chasis, transmisión y frenos, eléctrica, dinámica, cockpit e I+D.">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="color-scheme" content="light">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="UPCT Racing Team">
+  <meta property="og:locale" content="es_ES">
+  <meta property="og:title" content="Equipo · UPCT Racing Team">
+  <meta property="og:description" content="Las personas del UPCT Racing Team por departamentos.">
+  <meta property="og:image" content="assets/img/og/og-default.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Monoplaza del UPCT Racing Team de frente, con el nombre del equipo">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,500;0,600;0,700;0,800;1,500;1,600;1,700;1,800&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap">
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/styles.css">
+
+  <script src="data/site.js"></script>
+  <script src="data/sponsors.js"></script>
+  <script src="data/team.js"></script>
+  <script src="data/i18n-en.js"></script>
+  <script src="js/i18n.js"></script>
+  <script src="js/components.js"></script>
+  <script src="js/main.js" defer></script>
+  <script src="js/equipo.js" defer></script>
+</head>
+<body>
+  <site-header current="equipo"></site-header>
+
+  <main id="contenido" tabindex="-1">
+
+    <header class="page-head">
+      <span class="diag" aria-hidden="true"></span>
+      <div class="container">
+        <h1 class="t-page">Equipo</h1>
+        <p class="lede">Cada departamento aporta una pieza del coche.<span id="team-hint" hidden> Haz clic en una foto para visitar el perfil de LinkedIn de esa persona.</span></p>
+        <p class="team-meta" id="team-meta"></p>
+      </div>
+    </header>
+
+    <!-- Índice de departamentos + listado (todo se genera desde data/team.js) -->
+    <div class="container team-layout">
+      <nav class="team-index" aria-label="Departamentos">
+        <p class="label">Departamentos</p>
+        <ol class="team-index__list" id="team-index-list" role="list"></ol>
+      </nav>
+      <div id="team-root"></div>
+    </div>
+
+    <noscript>
+      <div class="container pb-section">
+        <p class="pending-box">Esta página necesita JavaScript para mostrar a las personas del equipo.</p>
+      </div>
+    </noscript>
+
+  </main>
+
+  <site-footer></site-footer>
+</body>
+</html>

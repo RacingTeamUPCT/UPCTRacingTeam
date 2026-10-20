@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contacto · UPCT Racing Team</title>
+  <meta name="description" content="Contacta con el UPCT Racing Team: correo, redes sociales, ubicación en la Universidad Politécnica de Cartagena y formulario de contacto.">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="color-scheme" content="light">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="UPCT Racing Team">
+  <meta property="og:locale" content="es_ES">
+  <meta property="og:title" content="Contacto · UPCT Racing Team">
+  <meta property="og:description" content="Escríbenos: correo, redes sociales y ubicación del UPCT Racing Team.">
+  <meta property="og:image" content="assets/img/og/og-default.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Monoplaza del UPCT Racing Team de frente, con el nombre del equipo">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,500;0,600;0,700;0,800;1,500;1,600;1,700;1,800&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap">
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/styles.css">
+
+  <script src="data/site.js"></script>
+  <script src="data/sponsors.js"></script>
+  <script src="data/i18n-en.js"></script>
+  <script src="js/i18n.js"></script>
+  <script src="js/components.js"></script>
+  <script src="js/main.js" defer></script>
+  <script src="js/contacto.js" defer></script>
+</head>
+<body>
+  <site-header current="contacto"></site-header>
+
+  <main id="contenido" tabindex="-1">
+
+    <header class="page-head">
+      <span class="diag" aria-hidden="true"></span>
+      <div class="container">
+        <h1 class="t-page">Contacto</h1>
+        <p class="lede">¿Quieres colaborar, patrocinarnos o simplemente conocernos? Escríbenos.</p>
+      </div>
+    </header>
+
+    <section class="section section--flush-top" aria-label="Datos de contacto y formulario">
+      <div class="container contact-grid">
+
+        <!-- Correo, redes y dirección (se generan desde data/site.js) -->
+        <div id="contact-info" data-reveal></div>
+
+        <!-- Formulario: sin servidor, al enviar abre el cliente de correo (mailto) -->
+        <form class="form" id="contact-form" novalidate aria-labelledby="form-title" data-reveal style="--reveal-delay: 100ms">
+          <h2 class="t-sub" id="form-title">Escríbenos</h2>
+
+          <div class="form__row">
+            <div class="field">
+              <label for="cf-nombre">Nombre</label>
+              <input id="cf-nombre" name="nombre" type="text" autocomplete="name" required aria-required="true" aria-describedby="cf-nombre-error">
+              <p class="field__error" id="cf-nombre-error" hidden></p>
+            </div>
+            <div class="field">
+              <label for="cf-correo">Correo</label>
+              <input id="cf-correo" name="correo" type="email" autocomplete="email" inputmode="email" required aria-required="true" aria-describedby="cf-correo-error">
+              <p class="field__error" id="cf-correo-error" hidden></p>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="cf-asunto">Asunto</label>
+            <input id="cf-asunto" name="asunto" type="text" autocomplete="off" required aria-required="true" aria-describedby="cf-asunto-error">
+            <p class="field__error" id="cf-asunto-error" hidden></p>
+          </div>
+
+          <div class="field">
+            <label for="cf-mensaje">Mensaje</label>
+            <textarea id="cf-mensaje" name="mensaje" rows="6" maxlength="1500" required aria-required="true" aria-describedby="cf-mensaje-error"></textarea>
+            <p class="field__error" id="cf-mensaje-error" hidden></p>
+          </div>
+
+          <div class="form__actions">
+            <button class="btn" type="submit">Enviar mensaje <span data-icon="arrow"></span></button>
+            <p class="form__hint">Todos los campos son obligatorios. Al enviar se abrirá tu aplicación de correo con el mensaje ya preparado.</p>
+          </div>
+          <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+        </form>
+
+      </div>
+
+      <!-- Mapa de Google Maps (iframe de embed, sin API key) -->
+      <div class="container">
+        <div class="maps" id="contact-map" data-reveal></div>
+      </div>
+    </section>
+
+    <noscript>
+      <div class="container pb-section">
+        <p class="pending-box">Esta página necesita JavaScript para mostrar los datos de contacto y el formulario.</p>
+      </div>
+    </noscript>
+
+  </main>
+
+  <site-footer></site-footer>
+</body>
+</html>

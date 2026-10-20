@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800" role="img" aria-label="[PENDIENTE: foto del equipo] Imagen provisional">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="38%" r="80%">
+      <stop offset="0" stop-color="#0b2a4d"/>
+      <stop offset="1" stop-color="#0054a0"/>
+    </radialGradient>
+    <linearGradient id="ln" gradientUnits="userSpaceOnUse" x1="330" y1="840" x2="620" y2="-40">
+      <stop offset="0" stop-color="#b1e0fe" stop-opacity="0"/>
+      <stop offset="0.5" stop-color="#b1e0fe"/>
+      <stop offset="1" stop-color="#b1e0fe" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="800" fill="url(#bg)"/>
+  <line x1="330" y1="840" x2="620" y2="-40" stroke="url(#ln)" stroke-width="2"/>
+  <rect x="48" y="48" width="1104" height="704" fill="none" stroke="#ffffff" stroke-opacity="0.18" stroke-dasharray="8 10"/>
+  <text x="600" y="395" text-anchor="middle" font-family="Inter,'Segoe UI',Arial,sans-serif" font-size="38" font-weight="600" fill="#f5f7fa">[PENDIENTE: foto del equipo]</text>
+  <text x="600" y="442" text-anchor="middle" font-family="Inter,'Segoe UI',Arial,sans-serif" font-size="22" fill="#cfe3f3">Sustituir por assets/img/hero/equipo-02.jpg</text>
+</svg>

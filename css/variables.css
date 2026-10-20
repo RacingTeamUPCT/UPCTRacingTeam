@@ -1,0 +1,132 @@
+/* ==========================================================================
+   UPCT Racing Team — Variables de diseño (tokens)
+   --------------------------------------------------------------------------
+   ÚNICO sitio donde se definen colores, tipografías y espaciados clave.
+   Para cambiar el aspecto del sitio basta con tocar este archivo.
+
+   Diseño «Velocidad»: blanco + azul oficial de la UPCT, letra cursiva, formas oblicuas y pie en azul tinta.
+   Colores oficiales de la UPCT (manual de identidad):
+     · Azul UPCT ........ #0054A0  (Pantone 2945 C)  → acento y botones
+     · Azul medio UPCT .. #75B2DD  (Pantone 292 C)   → detalles y franjas
+   Contrastes (WCAG) calculados contra el blanco de fondo:
+     · azul #0054A0 ...... 7,6 : 1  (texto y botones: AAA)
+     · texto #08203D ..... 16,5 : 1 · gris-500 #5B6F86 ... 5,2 : 1
+   ========================================================================== */
+
+:root {
+  /* ---------- Color: azules oficiales y tintas ---------- */
+  --c-ink:      #0a1c30;   /* azul tinta: titulares, texto principal y botones oscuros */
+  --c-navy:     #0a1c30;   /* azul tinta oscuro: pie de página */
+  --c-navy-2:   #0a3a68;
+  --c-blue:     #0054a0;   /* azul UPCT (Pantone 2945 C) */
+  --c-blue-hi:  #0b6abd;
+  --c-sky:      #75b2dd;   /* azul medio UPCT (Pantone 292 C) */
+  --c-sky-soft: #b1e0fe;   /* reflejo claro del logo del equipo */
+  --c-mist:     #f3f7fb;   /* fondo suave */
+  --c-mist-2:   #e4eef8;   /* fondo suave 2 */
+  --c-pure-white: #ffffff; /* texto sobre el azul */
+
+  /* Grises de apoyo (bordes y texto secundario) */
+  --c-grey-100: #2b4059;
+  --c-grey-300: #46596f;
+  --c-grey-500: #5b6f86;
+  --c-grey-700: #b4c6d9;   /* solo decoración: bordes, trazos */
+
+  /* Transparencias del azul UPCT */
+  --c-blue-a08: rgb(0 84 160 / 0.06);
+  --c-blue-a14: rgb(0 84 160 / 0.12);
+  --c-blue-a35: rgb(0 84 160 / 0.30);
+
+  /* ---------- Líneas ---------- */
+  --c-line:        #d9e3ee;
+  --c-line-strong: #b4c6d9;
+
+  /* ---------- Alias semánticos (usar estos en los componentes) ---------- */
+  --bg:           #ffffff;
+  --surface:      var(--c-mist);
+  --surface-2:    var(--c-mist-2);
+  --text:         var(--c-ink);
+  --text-soft:    var(--c-grey-100);
+  --text-muted:   var(--c-grey-300);
+  --text-faint:   #4a5e75;   /* texto pequeño: contraste ≈ 6,7 : 1 sobre blanco */
+  --accent:       var(--c-blue);
+  --accent-2:     var(--c-sky);
+  --border:       var(--c-line);
+  --border-strong: var(--c-line-strong);
+
+  /* ---------- Tipografía ---------- */
+  /* Títulos: Barlow Condensed en CURSIVA (condensada, potente y con sensación de velocidad). Texto: Inter. Ambas desde
+     Google Fonts (se enlazan en el <head> de cada página) con alternativa del sistema. */
+  --font-display: "Barlow Condensed", "Bahnschrift Condensed", "Arial Narrow",
+                  "Roboto Condensed", "Helvetica Neue", Arial, sans-serif;
+  --font-body: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", Roboto,
+               "Helvetica Neue", Arial, sans-serif;
+
+  --fw-light: 300;
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-semibold: 600;
+  --fw-bold: 700;
+
+  /* Escala fluida (se adapta de 375 px a pantallas grandes) */
+  --fs-xs:   0.75rem;
+  --fs-sm:   0.875rem;
+  --fs-base: clamp(1rem, 0.95rem + 0.2vw, 1.0625rem);
+  --fs-md:   clamp(1.125rem, 1.04rem + 0.4vw, 1.3125rem);   /* párrafo destacado */
+  --fs-lg:   clamp(1.5rem, 1.2rem + 1vw, 2rem);
+  --fs-xl:   clamp(2.25rem, 1.55rem + 2.7vw, 3.75rem);      /* títulos de sección */
+  --fs-2xl:  clamp(3rem, 1.75rem + 5.2vw, 6.25rem);         /* título de página */
+  --fs-hero: clamp(6.25rem, 1rem + 21vw, 22.5rem);          /* nombre del equipo */
+
+  --lh-tight: 1.02;      /* Oswald es alta: con menos interlineado los acentos se pisan */
+  --lh-snug: 1.15;
+  --lh-body: 1.65;
+
+  --ls-label: 0.2em;     /* etiquetas pequeñas en mayúsculas */
+  --ls-nav: 0.12em;      /* menú */
+  --ls-display: 0;       /* títulos */
+
+  /* ---------- Espaciado ---------- */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 4.5rem;
+  --space-9: 7rem;
+  --space-10: 10rem;
+
+  --section-y: clamp(4rem, 7.5vw, 7rem);             /* aire vertical entre secciones */
+  --gutter: clamp(1.25rem, 4.5vw, 4rem);             /* margen lateral */
+  --container: 82rem;                                /* ancho máximo del contenido */
+  --container-wide: 96rem;                           /* cabecera */
+  --safe-top: env(safe-area-inset-top, 0px);         /* zona de la muesca en móviles (0 en el resto) */
+  --header-h: calc(4.75rem + var(--safe-top));       /* alto del menú fijo */
+
+  /* ---------- Forma y movimiento ---------- */
+  --radius: 0;                /* esquinas rectas: el diseño usa cortes oblicuos */
+  --slash-angle: 20deg;       /* ángulo del recurso gráfico: el corte diagonal */
+  --skew: 10%;                /* inclinación del paralelogramo del visor */
+  --cut: 14px;                /* corte oblicuo de los botones y del menú */
+  /* Movimiento: las entradas arrancan rápido y frenan suave («frenada»); el hover es corto y seco. */
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);        /* entradas: salida rápida, frenada suave */
+  --ease-snap: cubic-bezier(0.3, 0, 0.1, 1);    /* hover y gestos: corto y seco */
+  --dur-fast: 180ms;
+  --dur: 240ms;
+  --dur-slow: 400ms;
+
+  /* ---------- Capas ---------- */
+  --z-menu: 90;
+  --z-header: 100;
+  --z-skip: 200;
+
+  /* ---------- Zona del coche (visor) ---------- */
+  --visor-ratio: 16 / 10;
+  --stage-bg: linear-gradient(160deg, #0b2a4d 0%, #0054a0 100%);
+}
+
+@media (max-width: 1080px) {
+  :root { --header-h: calc(4.25rem + var(--safe-top)); }
+}

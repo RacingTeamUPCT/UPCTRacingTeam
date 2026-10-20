@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-label="[PENDIENTE: foto del coche] Imagen provisional">
+  <defs>
+    <radialGradient id="floor" cx="50%" cy="50%" r="50%">
+      <stop offset="0" stop-color="#b1e0fe" stop-opacity="0.30"/>
+      <stop offset="1" stop-color="#b1e0fe" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <!-- Suelo del estudio: elipses concéntricas (no es un coche) -->
+  <ellipse cx="1000" cy="620" rx="650" ry="92" fill="url(#floor)"/>
+  <g fill="none" stroke="#ffffff">
+    <ellipse cx="1000" cy="620" rx="620" ry="88" stroke-opacity="0.06"/>
+    <ellipse cx="1000" cy="620" rx="470" ry="66" stroke-opacity="0.09"/>
+    <ellipse cx="1000" cy="620" rx="320" ry="45" stroke-opacity="0.12"/>
+  </g>
+  <!-- Marco provisional: aquí irá la foto (o el visor 3D en la fase 2) -->
+  <rect x="620" y="280" width="760" height="300" fill="none" stroke="#ffffff" stroke-opacity="0.28" stroke-dasharray="8 10"/>
+  <text x="1000" y="424" text-anchor="middle" font-family="Inter,'Segoe UI',Arial,sans-serif" font-size="34" font-weight="600" fill="#f5f7fa">[PENDIENTE: foto del coche]</text>
+  <text x="1000" y="468" text-anchor="middle" font-family="Inter,'Segoe UI',Arial,sans-serif" font-size="20" fill="#cfe3f3">Sustituir por assets/img/hero/coche-hero.png</text>
+  <text x="1000" y="498" text-anchor="middle" font-family="Inter,'Segoe UI',Arial,sans-serif" font-size="16" fill="#cfe3f3">PNG o WebP con fondo transparente (se ve sobre azul)</text>
+</svg>

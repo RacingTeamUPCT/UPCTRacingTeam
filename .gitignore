@@ -1,0 +1,8 @@
+# Configuración local de la herramienta de desarrollo (no forma parte de la web)
+.claude/
+
+# Sistema operativo / editores
+Thumbs.db
+desktop.ini
+.DS_Store
+.vscode/

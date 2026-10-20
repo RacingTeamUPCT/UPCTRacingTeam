@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Patrocinadores · UPCT Racing Team</title>
+  <meta name="description" content="Empresas e instituciones que apoyan al UPCT Racing Team. ¿Quieres patrocinar al equipo de Formula Student de la UPCT? Escríbenos.">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="color-scheme" content="light">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="UPCT Racing Team">
+  <meta property="og:locale" content="es_ES">
+  <meta property="og:title" content="Patrocinadores · UPCT Racing Team">
+  <meta property="og:description" content="Quienes hacen posible el monoplaza del UPCT Racing Team.">
+  <meta property="og:image" content="assets/img/og/og-default.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Monoplaza del UPCT Racing Team de frente, con el nombre del equipo">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,500;0,600;0,700;0,800;1,500;1,600;1,700;1,800&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap">
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/styles.css">
+
+  <script src="data/site.js"></script>
+  <script src="data/sponsors.js"></script>
+  <script src="data/i18n-en.js"></script>
+  <script src="js/i18n.js"></script>
+  <script src="js/components.js"></script>
+  <script src="js/main.js" defer></script>
+  <script src="js/patrocinadores.js" defer></script>
+</head>
+<body>
+  <site-header current="patrocinadores"></site-header>
+
+  <main id="contenido" tabindex="-1">
+
+    <header class="page-head">
+      <span class="diag" aria-hidden="true"></span>
+      <div class="container">
+        <p class="eyebrow">Quienes nos impulsan</p>
+        <h1 class="t-page">Patrocinadores</h1>
+        <p class="lede">El monoplaza llega a la pista gracias a las empresas e instituciones que confían en el equipo.</p>
+      </div>
+    </header>
+
+    <section class="section section--flush-top" aria-label="Listado de patrocinadores">
+      <div class="container">
+        <!-- La cuadrícula se genera desde data/sponsors.js -->
+        <ul class="sponsor-grid" id="sponsor-grid" role="list"></ul>
+        <p class="sponsor-note" id="sponsor-note" hidden></p>
+
+        <div class="sponsor-cta" data-reveal>
+          <div>
+            <h2>¿Quieres patrocinarnos?</h2>
+            <p>Si tu empresa o institución quiere formar parte del proyecto, escríbenos y te contamos cómo colaborar.</p>
+          </div>
+          <a class="btn" href="contacto.html?asunto=Quiero%20patrocinar%20al%20UPCT%20Racing%20Team">Hablemos <span data-icon="arrow"></span></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- DÓNDE VA TU MARCA: sitios del coche donde puede ir un logo -->
+    <section class="section section--band" id="mapa" aria-labelledby="mapa-t">
+      <div class="container">
+        <div class="sec-head" data-reveal>
+          <div><h2 class="t-section" id="mapa-t">Dónde va tu marca</h2></div>
+        </div>
+        <div class="mapa" data-reveal>
+          <div class="mapa__img">
+            <img src="assets/img/coche/lateral-derecho.jpg" width="699" height="454" loading="lazy" decoding="async"
+                 alt="Costado derecho del monoplaza con los logos de los patrocinadores en la carrocería">
+            <span class="spot" style="left:12%;top:70%" aria-hidden="true">1</span>
+            <span class="spot" style="left:36%;top:61%" aria-hidden="true">2</span>
+            <span class="spot" style="left:63%;top:65%" aria-hidden="true">3</span>
+            <span class="spot" style="left:37%;top:41%" aria-hidden="true">4</span>
+          </div>
+          <ol class="zonas" role="list">
+            <li><b aria-hidden="true">1</b><div><strong>Morro</strong><span>Lo primero que se ve en las fotos de frente y en parrilla.</span></div></li>
+            <li><b aria-hidden="true">2</b><div><strong>Lateral</strong><span>La zona más grande del coche. Sale en todas las fotos de pista.</span></div></li>
+            <li><b aria-hidden="true">3</b><div><strong>Junto al dorsal</strong><span>Al lado del 261 y del nombre de la universidad.</span></div></li>
+            <li><b aria-hidden="true">4</b><div><strong>Casco y mono del piloto</strong><span>En entrevistas, podios y fotos de equipo.</span></div></li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <site-footer></site-footer>
+</body>
+</html>

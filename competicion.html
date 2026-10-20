@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Competición Formula Student · UPCT Racing Team</title>
+  <meta name="description" content="Qué es Formula Student, qué pruebas incluye y cómo participan las universidades en la competición de ingeniería en la que compite el UPCT Racing Team.">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="color-scheme" content="light">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="UPCT Racing Team">
+  <meta property="og:locale" content="es_ES">
+  <meta property="og:title" content="Competición Formula Student · UPCT Racing Team">
+  <meta property="og:description" content="Qué es Formula Student, qué pruebas incluye y cómo participan las universidades.">
+  <meta property="og:image" content="assets/img/og/og-default.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Monoplaza del UPCT Racing Team de frente, con el nombre del equipo">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,500;0,600;0,700;0,800;1,500;1,600;1,700;1,800&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap">
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/styles.css">
+
+  <script src="data/site.js"></script>
+  <script src="data/sponsors.js"></script>
+  <script src="data/i18n-en.js"></script>
+  <script src="js/i18n.js"></script>
+  <script src="js/components.js"></script>
+  <script src="js/main.js" defer></script>
+</head>
+<body>
+  <site-header current="competicion"></site-header>
+
+  <main id="contenido" tabindex="-1">
+
+    <header class="page-head">
+      <span class="diag" aria-hidden="true"></span>
+      <div class="container">
+        <p class="eyebrow">Formula Student</p>
+        <h1 class="t-page">Competición</h1>
+        <p class="lede">La competición universitaria de ingeniería en la que el UPCT Racing Team diseña, construye y compite con su monoplaza.</p>
+      </div>
+    </header>
+
+    <!-- QUÉ ES · dos mitades: coche a la izquierda, texto a la derecha -->
+    <section class="section section--flush-top" aria-labelledby="comp-que-es">
+      <div class="container split split--media-left">
+        <div class="split__media" data-reveal>
+
+          <!-- FASE 2: aquí irá el visor 3D del coche (assets/models/coche.glb), el mismo que en Inicio y Garaje.
+               Se sustituye solo el <img class="stage__media"> por el visor (dentro de .stage__viewer). -->
+          <div class="visor-wrap">
+            <span class="stripes" aria-hidden="true"><i></i><i></i><i></i></span>
+            <div class="stage" id="visor-3d" data-visor="competicion" style="--visor-ratio: 5 / 4">
+              <img class="stage__media stage__media--photo" src="assets/img/hero/competicion.jpg" width="1500" height="1000" loading="lazy" decoding="async"
+                   alt="Foto de familia de todos los equipos y monoplazas de Formula Student Spain 2025 en la recta del Circuit de Barcelona-Catalunya">
+            </div>
+          </div>
+
+        </div>
+        <div class="split__body">
+          <div class="prose" data-reveal>
+            <h2 class="t-section" id="comp-que-es">¿Qué es Formula Student?</h2>
+            <p><span class="hl">Formula Student</span> es una competición internacional de <strong>ingeniería</strong> entre universidades. Cada equipo <strong>diseña, fabrica y pone a punto un monoplaza</strong> de carreras y lo defiende ante jueces expertos, tanto en la teoría como sobre la pista.</p>
+            <p>No gana solo el coche más rápido: gana el equipo que mejor combina <strong>diseño</strong>, <strong>costes</strong>, <strong>plan de negocio</strong> y <span class="hl">rendimiento en pista</span>.</p>
+          </div>
+          <div class="cta-row" data-reveal>
+            <a class="btn" href="https://www.imeche.org/events/formula-student/about-formula-student" target="_blank" rel="noopener noreferrer">Saber más <span data-icon="arrow"></span><span class="visually-hidden">(web oficial de Formula Student, se abre en una pestaña nueva)</span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRUEBAS -->
+    <section class="section section--band" aria-labelledby="comp-pruebas">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <p class="eyebrow">Cómo se puntúa</p>
+          <h2 class="t-section" id="comp-pruebas">Pruebas estáticas y dinámicas</h2>
+          <p class="lede">Los equipos suman puntos en dos tipos de pruebas: las que se evalúan ante un jurado y las que se disputan en pista.</p>
+        </div>
+
+        <div class="events">
+          <div data-reveal>
+            <div class="events__title"><h3 class="t-sub">Estáticas</h3><span class="label">Ante el jurado</span></div>
+            <ol class="event-list" role="list">
+              <li class="event"><span class="event__num" aria-hidden="true">01</span><div>
+                <h4 class="event__name">Diseño de ingeniería</h4>
+                <p class="event__desc">Expertos de la industria evalúan las decisiones técnicas del coche y cómo las defiende el equipo.</p></div></li>
+              <li class="event"><span class="event__num" aria-hidden="true">02</span><div>
+                <h4 class="event__name">Costes y fabricación</h4>
+                <p class="event__desc">El equipo analiza cuánto cuesta su monoplaza y cómo se fabrica, y lo documenta en un informe de costes.</p></div></li>
+              <li class="event"><span class="event__num" aria-hidden="true">03</span><div>
+                <h4 class="event__name">Plan de negocio</h4>
+                <p class="event__desc">Una presentación breve ante un jurado que hace de empresa: por qué el diseño del equipo es la mejor propuesta y cómo podría comercializarse.</p></div></li>
+              <li class="event"><span class="event__num" aria-hidden="true">04</span><div>
+                <h4 class="event__name">Inspección técnica y de seguridad</h4>
+                <p class="event__desc">Antes de salir a pista, el coche debe superar las revisiones técnicas y de seguridad que marca el reglamento.</p></div></li>
+            </ol>
+          </div>
+
+          <div data-reveal style="--reveal-delay: 120ms">
+            <div class="events__title"><h3 class="t-sub">Dinámicas</h3><span class="label">El coche en pista</span></div>
+            <ol class="event-list" role="list">
+              <li class="event"><span class="event__num" aria-hidden="true">01</span><div>
+                <h4 class="event__name">Aceleración</h4>
+                <p class="event__desc">Una salida en línea recta que mide lo rápido que acelera el coche.</p></div></li>
+              <li class="event"><span class="event__num" aria-hidden="true">02</span><div>
+                <h4 class="event__name">Skidpad</h4>
+                <p class="event__desc">Un recorrido en forma de ocho, marcado con conos, que mide el agarre lateral del coche.</p></div></li>
+              <li class="event"><span class="event__num" aria-hidden="true">03</span><div>
+                <h4 class="event__name">Autocross</h4>
+                <p class="event__desc">Una vuelta rápida a un circuito con curvas: pone a prueba la conducción, la frenada y la aceleración.</p></div></li>
+              <li class="event"><span class="event__num" aria-hidden="true">04</span><div>
+                <h4 class="event__name">Eficiencia</h4>
+                <p class="event__desc">Valora el consumo de combustible o de energía del coche.</p></div></li>
+              <li class="event"><span class="event__num" aria-hidden="true">05</span><div>
+                <h4 class="event__name">Resistencia</h4>
+                <p class="event__desc">La prueba de fondo y la que más puntos reparte: el coche debe demostrar velocidad y fiabilidad durante muchos kilómetros.</p></div></li>
+            </ol>
+          </div>
+        </div>
+
+        <!-- Fotos del equipo en la competición -->
+        <ul class="gallery" role="list" aria-label="Fotos del UPCT Racing Team en la competición">
+          <li class="gallery__item g1" data-reveal><img src="assets/img/competicion/pista-12.jpg" width="1038" height="713" loading="lazy" decoding="async" alt="Tres integrantes del equipo empujan el monoplaza por el pit lane mientras el piloto hace un gesto de ánimo"></li>
+          <li class="gallery__item g2" data-reveal><img src="assets/img/competicion/pista-17.jpg" width="766" height="1018" loading="lazy" decoding="async" alt="Monoplazas alineados en la recta de salida del circuito, bajo el cartel de bienvenida de Formula Student Spain"></li>
+          <li class="gallery__item g3" data-reveal><img src="assets/img/competicion/pista-14.jpg" width="1022" height="689" loading="lazy" decoding="async" alt="El equipo comenta el motor del monoplaza en el box"></li>
+          <li class="gallery__item g4" data-reveal><img src="assets/img/competicion/pista-15.jpg" width="1071" height="719" loading="lazy" decoding="async" alt="Integrantes del equipo revisan el morro del coche en el área de inspección"></li>
+          <li class="gallery__item g5" data-reveal><img src="assets/img/competicion/pista-16.jpg" width="1043" height="680" loading="lazy" decoding="async" alt="El equipo reunido junto al monoplaza con los jueces y las hojas de la prueba"></li>
+          <li class="gallery__item g6" data-reveal><img src="assets/img/competicion/pista-18.jpg" width="1064" height="721" loading="lazy" decoding="async" alt="El piloto sentado en la cabina del monoplaza hablando con el equipo"></li>
+          <li class="gallery__item g7" data-reveal><img src="assets/img/competicion/pista-13.jpg" width="964" height="651" loading="lazy" decoding="async" alt="Integrantes del equipo conversando alrededor de una mesa con un portátil"></li>
+          <li class="gallery__item g8" data-reveal><img src="assets/img/competicion/pista-19.jpg" width="1086" height="739" loading="lazy" decoding="async" alt="Tres integrantes del equipo mirando juntos un portátil a la entrada del box"></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- OBJETIVO EDUCATIVO Y PARTICIPACIÓN -->
+    <section class="section" aria-labelledby="comp-objetivo">
+      <div class="container">
+        <div class="cols-4-8">
+          <div data-reveal>
+            <p class="eyebrow">Objetivo educativo</p>
+            <h2 class="t-section" id="comp-objetivo">Una escuela de ingeniería fuera del aula</h2>
+          </div>
+          <div class="prose" data-reveal style="--reveal-delay: 100ms">
+            <p>Formula Student busca que los estudiantes <strong>apliquen lo que aprenden en la carrera</strong> a un proyecto real, de principio a fin. Por el camino desarrollan habilidades que valoran las empresas: <span class="hl">trabajo en equipo</span>, <strong>gestión de proyectos</strong>, <strong>control de presupuestos</strong> y <strong>comunicación</strong>.</p>
+            <p>Los jueces son profesionales de la industria del automóvil, del motorsport y de sus proveedores. Según la competición, existen categorías para coches de <strong>combustión</strong>, <strong>eléctricos</strong> y de <strong>conducción autónoma</strong> (driverless).</p>
+          </div>
+        </div>
+
+        <h3 class="visually-hidden">Cómo participan las universidades</h3>
+        <ol class="steps" role="list">
+          <li class="step" data-reveal>
+            <span class="step__num" aria-hidden="true">01</span>
+            <h4 class="step__title">Diseñar y construir</h4>
+            <p class="step__text">El equipo desarrolla su monoplaza siguiendo el reglamento que publica cada año la organización.</p>
+          </li>
+          <li class="step" data-reveal style="--reveal-delay: 90ms">
+            <span class="step__num" aria-hidden="true">02</span>
+            <h4 class="step__title">Inscribirse y documentar</h4>
+            <p class="step__text">Se inscribe en la competición y entrega documentación previa, como los informes de diseño y de costes.</p>
+          </li>
+          <li class="step" data-reveal style="--reveal-delay: 180ms">
+            <span class="step__num" aria-hidden="true">03</span>
+            <h4 class="step__title">Pasar la inspección</h4>
+            <p class="step__text">Ya en el evento, el coche debe superar las revisiones técnicas y de seguridad.</p>
+          </li>
+          <li class="step" data-reveal style="--reveal-delay: 270ms">
+            <span class="step__num" aria-hidden="true">04</span>
+            <h4 class="step__title">Competir y sumar</h4>
+            <p class="step__text">Se puntúan las pruebas estáticas y dinámicas. Gana el equipo que más puntos suma.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- LO PROPIO DEL EQUIPO: sin datos todavía -->
+    <section class="section section--flush-top" aria-labelledby="comp-equipo">
+      <div class="container">
+        <div class="cols-4-8">
+          <div data-reveal>
+            <p class="eyebrow">El UPCT Racing Team</p>
+            <h2 class="t-section" id="comp-equipo">En la competición</h2>
+          </div>
+          <dl class="facts" data-reveal style="--reveal-delay: 100ms">
+            <div class="fact"><dt class="label">Competición</dt><dd>Formula Student Spain 2027 · Barcelona</dd></div>
+            <div class="fact"><dt class="label">Categoría</dt><dd>Combustión</dd></div>
+            <div class="fact"><dt class="label">Resultados</dt><dd><a href="https://www.formulastudent.es/editions" target="_blank" rel="noopener noreferrer">Resultados 2025 · Barcelona <span data-icon="arrow"></span><span class="visually-hidden">(se abre en una pestaña nueva)</span></a></dd></div>
+          </dl>
+        </div>
+      </div>
+    </section>
+
+    <!-- FUENTES -->
+    <section class="sources" aria-labelledby="comp-fuentes">
+      <div class="container">
+        <h2 class="label" id="comp-fuentes">Competiciones y fuentes oficiales</h2>
+        <ul class="sources__list" role="list">
+          <li><a href="https://www.imeche.org/events/formula-student/about-formula-student" target="_blank" rel="noopener noreferrer">Formula Student — Institution of Mechanical Engineers (IMechE), organizadora de Formula Student en el Reino Unido<span class="visually-hidden"> (se abre en una pestaña nueva)</span></a></li>
+          <li><a href="https://www.formulastudent.de/fsg/about" target="_blank" rel="noopener noreferrer">Formula Student Germany — competición anual en Hockenheim<span class="visually-hidden"> (se abre en una pestaña nueva)</span></a></li>
+          <li><a href="https://www.formulastudent.es/" target="_blank" rel="noopener noreferrer">Formula Student Spain — Circuit de Barcelona-Catalunya (Montmeló), organizada por la Sociedad Técnica del Automóvil<span class="visually-hidden"> (se abre en una pestaña nueva)</span></a></li>
+        </ul>
+      </div>
+    </section>
+
+  </main>
+
+  <site-footer></site-footer>
+</body>
+</html>

@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>UPCT Racing Team · Formula Student Cartagena</title>
+  <meta name="description" content="UPCT Racing Team: el equipo de Formula Student de la Universidad Politécnica de Cartagena. Diseñamos, construimos y competimos con un monoplaza propio.">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="color-scheme" content="light">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+
+  <!-- Open Graph. [PENDIENTE: dominio] → cuando se publique la web, usar URL absoluta en og:image y añadir og:url -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="UPCT Racing Team">
+  <meta property="og:locale" content="es_ES">
+  <meta property="og:title" content="UPCT Racing Team · Formula Student">
+  <meta property="og:description" content="El equipo de Formula Student de la Universidad Politécnica de Cartagena.">
+  <meta property="og:image" content="assets/img/og/og-default.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Monoplaza del UPCT Racing Team de frente, con el nombre del equipo">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,500;0,600;0,700;0,800;1,500;1,600;1,700;1,800&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap">
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/styles.css">
+
+  <script src="data/site.js"></script>
+  <script src="data/sponsors.js"></script>
+  <script src="data/blog.js"></script>
+  <script src="data/team.js"></script>
+  <script src="data/coche.js"></script>
+  <script src="data/i18n-en.js"></script>
+  <script src="js/i18n.js"></script>
+  <script src="js/components.js"></script>
+  <script src="js/main.js" defer></script>
+  <script src="js/posts.js" defer></script>
+  <script src="js/home.js" defer></script>
+  <script src="js/coche3d.js" defer></script>
+  <script src="js/visor.js" defer></script>
+</head>
+<body>
+  <site-header current="inicio"></site-header>
+
+  <main id="contenido" tabindex="-1">
+
+    <!-- HÉROE ---------------------------------------------------------------
+         Titular a la izquierda y visor del coche a la derecha, en un panel azul
+         con franjas. El visor (js/visor.js) se mueve con el ratón: hoy recorre las
+         fotos reales del coche; cuando exista assets/models/coche.glb pasa solo a 3D. -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero__inner">
+
+        <div class="hero__content">
+          <h1 class="hero__title" id="hero-title">
+            <span class="t-hero">UPCT</span>
+            <span class="hero__subtitle">Racing Team</span>
+          </h1>
+          <div class="hero__actions">
+            <a class="btn" href="garaje.html">Conoce el garaje <span data-icon="arrow"></span></a>
+            <a class="btn btn--ghost" href="quienes-somos.html">Quiénes somos</a>
+          </div>
+          <!-- «Síguenos»: lo rellena js/home.js con las redes de data/site.js -->
+          <div class="follow" id="follow" hidden></div>
+        </div>
+
+        <div class="hero__visor visor-wrap">
+          <span class="stripes" aria-hidden="true"><i></i><i></i><i></i></span>
+          <!-- Visor 3D (js/visor.js). Sin JavaScript se ve una foto del coche. -->
+          <div class="stage" id="visor-3d" data-visor="inicio">
+            <div class="stage__viewer">
+              <noscript>
+                <img class="stage__media" src="assets/img/coche/lateral-derecho.jpg" width="699" height="454"
+                     alt="Costado derecho del monoplaza del UPCT Racing Team, número 261, junto a los boxes del circuito">
+              </noscript>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CINTA DE PATROCINADORES, justo debajo del héroe (js/home.js, desde data/sponsors.js) -->
+    <section class="cinta" id="cinta" aria-label="Patrocinadores" hidden>
+      <div class="cinta__inner">
+        <p class="cinta__label">Con el apoyo de</p>
+        <div class="cinta__viewport"><ul class="cinta__track" id="cinta-track"></ul></div>
+      </div>
+    </section>
+
+    <!-- EL EQUIPO EN CIFRAS (js/home.js) -->
+    <section class="cifras" id="cifras" aria-label="El equipo en cifras">
+      <div class="container"><ul class="cifras__grid" id="cifras-grid"></ul></div>
+    </section>
+
+    <!-- MISIÓN Y VALORES (se genera desde data/site.js) -->
+    <section class="section section--band" id="mision" aria-labelledby="mv-title">
+      <div class="container" id="mv-root"></div>
+    </section>
+
+    <!-- FOTO A SANGRE -->
+    <figure class="foto-sangre">
+      <img src="assets/img/competicion/pista-12.jpg" width="1038" height="713" loading="lazy" decoding="async"
+           alt="Tres integrantes del equipo empujan el monoplaza por el pit lane mientras el piloto hace un gesto de ánimo">
+      <figcaption>El equipo en el pit lane</figcaption>
+    </figure>
+
+    <!-- INSTAGRAM: widget automático si hay uno configurado en data/site.js; si no, cuadrícula de fotos que lleva al perfil -->
+    <section class="section" id="insta" aria-labelledby="insta-t">
+      <div class="container">
+        <div class="sec-head">
+          <div>
+            <h2 class="t-section" id="insta-t">En Instagram</h2>
+            <p>Síguenos para ver lo último del taller y de la pista.</p>
+          </div>
+          <a class="insta__handle" id="insta-handle" href="#" target="_blank" rel="noopener noreferrer"></a>
+        </div>
+        <div id="insta-feed"></div>
+        <div class="insta__foot" id="insta-foot"></div>
+      </div>
+    </section>
+
+    <!-- ÚLTIMAS NOTICIAS (data/blog.js). Sin noticias, esta sección no aparece. -->
+    <section class="section section--band" id="noticias" aria-labelledby="noticias-t" hidden>
+      <div class="container">
+        <div class="sec-head">
+          <div><h2 class="t-section" id="noticias-t">Últimas noticias</h2></div>
+          <a class="link-line" href="blog.html">Ver todas</a>
+        </div>
+        <ul class="posts" id="noticias-list" role="list"></ul>
+      </div>
+    </section>
+
+    <!-- PATROCINADORES + LLAMADA A PATROCINAR (sin niveles todavía: todos juntos) -->
+    <section class="section patro" id="patro" aria-labelledby="patro-t" hidden>
+      <div class="container">
+        <div class="sec-head">
+          <div>
+            <h2 class="t-section" id="patro-t">Gracias a ellos, corremos</h2>
+            <p>Las empresas e instituciones que apoyan al equipo.</p>
+          </div>
+        </div>
+        <ul class="patro__logos" id="patro-logos" role="list"></ul>
+        <div class="patro__cta">
+          <div>
+            <h3>¿Tu marca en el 261?</h3>
+            <p>Escríbenos y te contamos cómo colaborar con el equipo.</p>
+          </div>
+          <a class="btn" href="contacto.html?asunto=Quiero%20patrocinar%20al%20UPCT%20Racing%20Team">Hablemos <span data-icon="arrow"></span></a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <site-footer sin-patrocinadores></site-footer>
+</body>
+</html>
