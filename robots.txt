@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://upctracingteam.com/sitemap.xml
