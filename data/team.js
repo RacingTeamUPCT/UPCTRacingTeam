@@ -21,7 +21,7 @@ UPCT.team = {
 
   /* Team leader: bloque aparte, arriba del todo de la página Equipo. Rellena nombre y foto
      (suelta la foto en assets/img/team/ y cambia "foto"; con original: true se muestra tal cual, sin recorte). */
-  lider: { titulo: "Team leader", nombre: "Nombre Apellido", foto: "lider.svg", linkedin: "" },
+  lider: { titulo: "Team leader", nombre: "Nicole Lengrand", foto: "lider.svg", linkedin: "" },
 
   departamentos: [
     {
