@@ -208,7 +208,7 @@
   var posts = ((UPCT.blog && UPCT.blog.posts) || []).slice().sort(function (a, b) { return String(b.fecha).localeCompare(String(a.fecha)); }).slice(0, 3);
   var noticias = $('noticias');
   if (noticias && posts.length) {
-    $('noticias-list').innerHTML = posts.map(function (p) { return UPCT.postCard ? UPCT.postCard(p) : ''; }).join('');
+    $('noticias-list').innerHTML = posts.map(function (p, i) { return UPCT.postCard ? UPCT.postCard(p, i === 0) : ''; }).join('');
     noticias.hidden = false;
   }
 

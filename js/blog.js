@@ -55,9 +55,9 @@
         }).join('') + '</ul>'
       : '';
 
+    /* Todas las noticias son tarjetas (título, vídeo o foto, comienzo del texto y «Leer más»); la más reciente, más ancha */
     listRoot.innerHTML = filters +
-      (visible.length ? featured(visible[0]) : '') +
-      '<ul class="posts" role="list">' + visible.slice(1).map(function (p) { return UPCT.postCard(p); }).join('') + '</ul>';
+      '<ul class="posts" role="list">' + visible.map(function (p, i) { return UPCT.postCard(p, i === 0); }).join('') + '</ul>';
     UPCT.reveal(listRoot);
   }
 
@@ -70,13 +70,17 @@
 
   /* ---------- Noticia abierta ---------- */
   function renderArticle(p) {
-    var img = p.foto ? '<figure><img src="' + esc(p.foto) + '" alt="' + esc(p.fotoAlt || '') + '" decoding="async"></figure>' : '';
+    /* Orden: vídeo (o foto) arriba del todo, luego título y cuerpo */
+    var media = p.video
+      ? '<figure>' + UPCT.postVideo(p) + '</figure>'
+      : (p.foto ? '<figure><img src="' + esc(p.foto) + '" alt="' + esc(p.fotoAlt || '') + '" decoding="async"></figure>' : '');
     artRoot.innerHTML = '<div class="blog-articulo">' +
       '<p><a class="link-line" href="blog.html">Volver al blog</a></p>' +
+      media +
       '<div class="post__meta"><span class="post__cat">' + esc(p.categoria || '') + '</span><span>' + esc(UPCT.formatDate(p.fecha)) + '</span>' +
         (p.autor ? '<span>' + esc(p.autor) + '</span>' : '') + '</div>' +
-      '<h1>' + esc(p.titulo) + '</h1>' + img +
-      (p.cuerpo || []).map(function (t) { return '<p>' + esc(t) + '</p>'; }).join('') +
+      '<h1>' + esc(p.titulo) + '</h1>' +
+      (p.cuerpo || []).map(function (t) { return '<p>' + UPCT.richText(t) + '</p>'; }).join('') +
     '</div>';
     d.title = p.titulo + ' · UPCT Racing Team';
   }

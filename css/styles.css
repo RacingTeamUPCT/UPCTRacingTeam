@@ -1877,3 +1877,17 @@ html.is-leaving main, html.is-leaving .site-footer { opacity: 0; transition: opa
 .dept:first-of-type { padding-top: 0; }
 .sources { padding-block: clamp(2rem, 4vw, 3rem); }
 @media (max-width: 900px) { .hero { padding-bottom: 3rem; } }
+
+
+/* 21. NOTICIAS CON VÍDEO ---------------------------------------------------- */
+/* Tarjeta: título, vídeo (o foto), comienzo del texto y «Leer más». */
+.posts { grid-template-columns: repeat(auto-fill, minmax(min(100%, 20rem), 1fr)); align-items: start; }
+.post { display: flex; flex-direction: column; gap: 0.8rem; min-width: 0; }
+.post h3 a { color: inherit; }
+.post h3 a:hover, .post h3 a:focus-visible { color: var(--accent); }
+.post__video, .post__media { display: block; width: 100%; }
+.post__video { aspect-ratio: 16 / 9; background: #000; object-fit: contain; }
+.post__more { align-self: flex-start; margin-top: 0.25rem; }
+@media (min-width: 900px) { .post--wide { grid-column: span 2; } }
+.blog-articulo figure .post__video { aspect-ratio: 16 / 9; }
+.blog-articulo a.link-line { overflow-wrap: anywhere; }
