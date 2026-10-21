@@ -19,6 +19,10 @@ window.UPCT = window.UPCT || {};
 UPCT.team = {
   carpetaFotos: "assets/img/team/",
 
+  /* Team leader: bloque aparte, arriba del todo de la página Equipo. Rellena nombre y foto
+     (suelta la foto en assets/img/team/ y cambia "foto"; con original: true se muestra tal cual, sin recorte). */
+  lider: { titulo: "Team leader", nombre: "Nombre Apellido", foto: "lider.svg", linkedin: "" },
+
   departamentos: [
     {
       nombre: "Marketing",
@@ -70,13 +74,15 @@ UPCT.team = {
       descripcion: "La estructura del coche: rígida, segura y lo más ligera posible.",
       descripcionPropuesta: true,
       miembros: [
-        { nombre: "Nombre Apellido 1", foto: "chasis-01.svg", linkedin: "" },   // coordinador
-        { nombre: "Nombre Apellido 2", foto: "chasis-02.svg", linkedin: "" },
-        { nombre: "Nombre Apellido 3", foto: "chasis-03.svg", linkedin: "" },
-        { nombre: "Nombre Apellido 4", foto: "chasis-04.svg", linkedin: "" },
-        { nombre: "Nombre Apellido 5", foto: "chasis-05.svg", linkedin: "" },
-        { nombre: "Nombre Apellido 6", foto: "chasis-06.svg", linkedin: "" },
-        { nombre: "Nombre Apellido 7", foto: "chasis-07.svg", linkedin: "" }
+        { nombre: "Guillermo Galván",        foto: "chasis-01.svg", linkedin: "" },   // coordinador
+        { nombre: "Jaime Franco",            foto: "chasis-02.svg", linkedin: "" },
+        { nombre: "José Francisco Martínez", foto: "chasis-03.svg", linkedin: "" },
+        { nombre: "Miguel Tudela",           foto: "chasis-04.svg", linkedin: "" },
+        { nombre: "Francisco Guardiola",     foto: "chasis-05.svg", linkedin: "" },
+        { nombre: "Carlos Sanchez",          foto: "chasis-06.svg", linkedin: "" },
+        { nombre: "José Manuel",             foto: "chasis-07.svg", linkedin: "" },
+        { nombre: "Sandra Martínez",         foto: "chasis-08.svg", linkedin: "" },
+        { nombre: "Ginés Conesa",            foto: "chasis-09.svg", linkedin: "" }
       ]
     },
 

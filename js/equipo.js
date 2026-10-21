@@ -40,7 +40,7 @@
   }
 
   /* ---------- Una persona ---------- */
-  function member(person, dept, i) {
+  function member(person, dept, i, role) {
     var name = person.nombre || '';
     var hasLink = !!person.linkedin;
     if (hasLink) { anyLinkedin = true; }
@@ -59,7 +59,7 @@
     /* El primer miembro de cada departamento es el coordinador */
     return '<li class="member" data-reveal style="--reveal-delay:' + ((i % 4) * 70) + 'ms">' + media +
       '<p class="member__name">' + esc(name) + '</p>' +
-      (i === 0 ? '<p class="member__role">Coordinador</p>' : '') +
+      (role ? '<p class="member__role">' + esc(role) + '</p>' : (i === 0 ? '<p class="member__role">Coordinador</p>' : '')) +
     '</li>';
   }
 
@@ -81,7 +81,22 @@
     '</section>';
   }
 
-  root.innerHTML = depts.map(department).join('');
+  /* ---------- Team leader: bloque aparte, arriba del todo (data.lider en data/team.js) ---------- */
+  function leader(person) {
+    if (!person) { return ''; }
+    total += 1;
+    var title = person.titulo || 'Team leader';
+    return '<section class="dept dept--lider" id="team-leader" aria-labelledby="team-leader-titulo">' +
+      '<header class="dept__head" data-reveal>' +
+        '<span class="dept__num" aria-hidden="true"></span>' +
+        '<div><h2 class="dept__title" id="team-leader-titulo">' + esc(title) + '</h2></div>' +
+        '<span class="dept__count">1 persona</span>' +
+      '</header>' +
+      '<ul class="team-grid" role="list">' + member(person, { nombre: title }, 0, title) + '</ul>' +
+    '</section>';
+  }
+
+  root.innerHTML = leader(data.lider) + depts.map(department).join('');
 
   indexList.innerHTML = depts.map(function (dept, i) {
     return '<li><a class="team-index__link" href="#' + esc(dept.ancla) + '" data-id="' + esc(dept.ancla) + '">' +

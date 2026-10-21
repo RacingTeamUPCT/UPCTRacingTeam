@@ -1854,3 +1854,26 @@ html.is-leaving main, html.is-leaving .site-footer { opacity: 0; transition: opa
 .sponsor-cta h2 { font-size: var(--fs-xl); line-height: 0.98; }
 .sponsor-cta p { margin-top: 0.9rem; max-width: 40rem; font-size: var(--fs-md); line-height: 1.5; }
 .sponsor-cta .btn { padding: 1.2rem 3rem 1.2rem 2.5rem; font-size: 1.25rem; }
+
+/* 19. TIPOGRAFÍA: etiquetas con la fuente acordada ----------------------- */
+/* Estas tres piezas usaban IBM Plex Sans en negrita 700 (un peso que no se carga) y se veían distintas al resto de etiquetas.
+   Ahora usan Barlow Condensed cursiva, como el resto de rótulos y botones. */
+.timeline__tag, .map__open, .spot {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 700;
+}
+.timeline__tag { font-size: 0.8125rem; letter-spacing: 0.1em; }
+.map__open { font-size: 0.9375rem; letter-spacing: 0.08em; text-transform: uppercase; }
+.spot { font-size: 1rem; }
+
+
+/* 20. ESPACIOS: menos aire sobrante, en móvil y en ordenador --------------- */
+:root { --section-y: clamp(2.75rem, 5.2vw, 4.75rem); }      /* antes 4–7 rem: el hueco entre secciones era casi el doble */
+.values { margin-top: clamp(2.25rem, 5vw, 4rem); }
+.value { padding-block: 2.25rem 2.1rem; }
+.value__title { margin-top: 0; }                            /* ya no hay número encima del título */
+.dept { padding-top: clamp(2rem, 4vw, 3.5rem); }
+.dept:first-of-type { padding-top: 0; }
+.sources { padding-block: clamp(2rem, 4vw, 3rem); }
+@media (max-width: 900px) { .hero { padding-bottom: 3rem; } }
