@@ -79,8 +79,8 @@ UPCT.team = {
         { nombre: "José Francisco Martínez", foto: "chasis-03.svg", linkedin: "" },
         { nombre: "Miguel Tudela",           foto: "chasis-04.svg", linkedin: "" },
         { nombre: "Francisco Guardiola",     foto: "chasis-05.svg", linkedin: "" },
-        { nombre: "Carlos Sanchez",          foto: "chasis-06.svg", linkedin: "" },
-        { nombre: "José Manuel",             foto: "chasis-07.svg", linkedin: "" },
+        { nombre: "Carlos Sánchez",          foto: "chasis-06.svg", linkedin: "" },
+        { nombre: "José Manuel Picazo",      foto: "chasis-07.svg", linkedin: "" },
         { nombre: "Sandra Martínez",         foto: "chasis-08.svg", linkedin: "" },
         { nombre: "Ginés Conesa",            foto: "chasis-09.svg", linkedin: "" }
       ]
