@@ -32,8 +32,8 @@ UPCT.site = {
   logo: {
     src: "assets/img/logo/upct-racing-team-color.png",
     alt: "UPCT Racing Team · Formula Student",
-    ancho: 438,
-    alto: 158,
+    ancho: 1000,
+    alto: 334,
     mostrarNombre: false
   },
 
@@ -50,8 +50,8 @@ UPCT.site = {
   logoEquipoPie: {
     src: "assets/img/logo/upct-racing-team.png",
     alt: "UPCT Racing Team",
-    ancho: 220,
-    alto: 80
+    ancho: 1000,
+    alto: 334
   },
 
   /* Menú principal (el orden es el que aparece en la web). El "id" debe coincidir

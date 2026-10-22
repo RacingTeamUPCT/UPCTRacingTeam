@@ -8,12 +8,23 @@
   var UPCT = (window.UPCT = window.UPCT || {});
   var esc = UPCT.esc || function (v) { return String(v == null ? '' : v); };
   var MESES = ['ene', 'feb', 'mar', 'abr', 'may', 'jun', 'jul', 'ago', 'sep', 'oct', 'nov', 'dic'];
+  var MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+  function isEN() { return !!(UPCT.i18n && UPCT.i18n.lang === 'en'); }
+
+  /* Noticia en el idioma actual: si tiene versión «en» y la web está en inglés, sus campos la sustituyen */
+  UPCT.loc = function (p) {
+    if (!isEN() || !p.en) { return p; }
+    var o = {}, k;
+    for (k in p) { o[k] = p[k]; }
+    for (k in p.en) { o[k] = p.en[k]; }
+    return o;
+  };
 
   /* «2026-10-12» → «12 oct 2026» */
   UPCT.formatDate = function (iso) {
     var m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(String(iso || ''));
     if (!m) { return ''; }
-    return parseInt(m[3], 10) + ' ' + MESES[parseInt(m[2], 10) - 1] + ' ' + m[1];
+    return parseInt(m[3], 10) + ' ' + (isEN() ? MONTHS : MESES)[parseInt(m[2], 10) - 1] + ' ' + m[1];
   };
 
   /* Texto con enlaces: «[texto](url)» → <a>. El resto del texto se escapa. */
@@ -43,6 +54,7 @@
 
   /* Tarjeta de una noticia: título, vídeo (o foto), comienzo del texto y «Leer más» (lleva a blog.html#id) */
   UPCT.postCard = function (p, wide) {
+    p = UPCT.loc(p);
     var href = 'blog.html#' + esc(p.id);
     var media = p.video
       ? UPCT.postVideo(p)
@@ -53,7 +65,7 @@
       '<h3><a href="' + href + '">' + esc(p.titulo) + '</a></h3>' +
       media +
       (excerpt ? '<p>' + esc(excerpt) + '</p>' : '') +
-      '<a class="link-line post__more" href="' + href + '">Leer más<span class="visually-hidden"> sobre «' + esc(p.titulo) + '»</span></a>' +
+      '<a class="link-line post__more" href="' + href + '">' + (isEN() ? 'Read more' : 'Leer más') + '<span class="visually-hidden">' + (isEN() ? ' about “' + esc(p.titulo) + '”' : ' sobre «' + esc(p.titulo) + '»') + '</span></a>' +
     '</li>';
   };
 })();

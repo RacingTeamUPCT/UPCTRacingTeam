@@ -70,6 +70,7 @@
 
   /* ---------- Noticia abierta ---------- */
   function renderArticle(p) {
+    p = UPCT.loc(p);
     /* Orden: vídeo (o foto) arriba del todo, luego título y cuerpo */
     var media = p.video
       ? '<figure>' + UPCT.postVideo(p) + '</figure>'
@@ -82,15 +83,15 @@
       '<h1>' + esc(p.titulo) + '</h1>' +
       (p.cuerpo || []).map(function (t) { return '<p>' + UPCT.richText(t) + '</p>'; }).join('') +
     '</div>';
-    d.title = p.titulo + ' · UPCT Racing Team';
+    d.title = p.titulo + ' · UPCT Racing Team';   /* p ya está en el idioma actual */
   }
 
-  function route() {
+  function route(keepScroll) {
     var id = decodeURIComponent((location.hash || '').slice(1));
     var p = id ? byId(id) : null;
     if (p) {
       list.hidden = true; artSec.hidden = false; renderArticle(p);
-      window.scrollTo(0, 0);
+      if (!keepScroll) { window.scrollTo(0, 0); }
     } else {
       artSec.hidden = true; list.hidden = false; d.title = 'Blog · UPCT Racing Team';
     }
@@ -98,5 +99,7 @@
 
   renderList();
   route();
-  window.addEventListener('hashchange', route);
+  window.addEventListener('hashchange', function () { route(); });
+  /* Al cambiar de idioma se vuelven a pintar las noticias (lista y artículo) en el idioma elegido */
+  document.addEventListener('upct:lang', function () { renderList(); route(true); });
 })();

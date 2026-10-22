@@ -207,9 +207,14 @@
   /* ---------- Últimas noticias (solo si hay) ---------- */
   var posts = ((UPCT.blog && UPCT.blog.posts) || []).slice().sort(function (a, b) { return String(b.fecha).localeCompare(String(a.fecha)); }).slice(0, 3);
   var noticias = $('noticias');
-  if (noticias && posts.length) {
+  function paintNews() {
     $('noticias-list').innerHTML = posts.map(function (p, i) { return UPCT.postCard ? UPCT.postCard(p, i === 0) : ''; }).join('');
+    UPCT.reveal($('noticias-list'));
+  }
+  if (noticias && posts.length) {
+    paintNews();
     noticias.hidden = false;
+    document.addEventListener('upct:lang', paintNews);   /* las noticias se vuelven a pintar en el idioma elegido */
   }
 
   /* ---------- Patrocinadores y llamada a patrocinar ---------- */

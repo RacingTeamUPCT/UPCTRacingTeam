@@ -41,7 +41,20 @@ UPCT.blog = {
         "Os dejamos el tráiler para que veáis cómo funciona, y si queréis probarlo, podéis jugar aquí: [Jugar a «Ingeniero por un día»](assets/juego/ingeniero-por-un-dia.html)",
         "💻 Importante: el juego está pensado para jugarse desde el ordenador, así que os recomendamos abrirlo ahí para disfrutarlo bien.",
         "¡Os esperamos en nuestro puesto para ver quién marca el mejor tiempo! 🏁"
-      ]
+      ],
+      /* Versión en inglés (se muestra al cambiar el idioma de la web a EN) */
+      en: {
+        titulo: "Create, race and win: we're launching a game",
+        videoAlt: "Trailer of the UPCT Racing Team interactive game “Ingeniero por un día”",
+        cuerpo: [
+          "This year we wanted our stand at Science Week to be even more interactive: we wanted people to be able to be engineers for a while. That's why we've created an interactive game where anyone, especially the little ones, can design their own single-seater starting from our prototype.",
+          "Choose the parts, the engine and the circuit, test your design in the wind tunnel and compete in races to make it onto the day's leaderboard. It's a simple and fun way to discover what we do every season: aerodynamics, design trade-offs and a lot of teamwork.",
+          "But there's one more challenge: the budget. Just like in the real competition, you can't put everything you want on your car. You'll have a limited budget and will have to decide what's worth spending it on to build the best car possible. More power or better aerodynamics? Lightweight parts or reliable ones? Every decision counts.",
+          "We're leaving you the trailer so you can see how it works, and if you want to try it, you can play here: [Play “Ingeniero por un día” (in Spanish)](assets/juego/ingeniero-por-un-dia.html)",
+          "💻 Important: the game is designed to be played on a computer, so we recommend opening it there to enjoy it properly.",
+          "We look forward to seeing you at our stand to find out who sets the best time! 🏁"
+        ]
+      }
     }
   ]
 };
