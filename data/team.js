@@ -19,9 +19,15 @@ window.UPCT = window.UPCT || {};
 UPCT.team = {
   carpetaFotos: "assets/img/team/",
 
-  /* Team leader: bloque aparte, arriba del todo de la página Equipo. Rellena nombre y foto
-     (suelta la foto en assets/img/team/ y cambia "foto"; con original: true se muestra tal cual, sin recorte). */
-  lider: { titulo: "Team leader", nombre: "Nicole Lengrand", foto: "lider.svg", linkedin: "" },
+  /* Directiva: bloque aparte, arriba del todo de la página Equipo. Cada persona lleva su cargo en "rol".
+     (Suelta la foto en assets/img/team/ y cambia "foto"; con original: true se muestra tal cual, sin recorte.) */
+  directiva: {
+    titulo: "Directiva",
+    miembros: [
+      { nombre: "Nicole Lengrand", rol: "Team leader",               foto: "lider.svg", linkedin: "" },
+      { nombre: "Sergio García",   rol: "Coordinador business plan", foto: "directiva-sergio-garcia.png", original: true, linkedin: "" }
+    ]
+  },
 
   departamentos: [
     {
@@ -47,9 +53,9 @@ UPCT.team = {
       descripcionPropuesta: true,
       miembros: [
         { nombre: "Nombre Apellido 1", foto: "motor-01.svg", linkedin: "" },   // coordinador
-        { nombre: "Nombre Apellido 2", foto: "motor-02.svg", linkedin: "" },
-        { nombre: "Nombre Apellido 3", foto: "motor-03.svg", linkedin: "" },
-        { nombre: "Nombre Apellido 4", foto: "motor-04.svg", linkedin: "" },
+        { nombre: "Pablo Alba",        foto: "motor-pablo-alba.png",        original: true, linkedin: "" },
+        { nombre: "Alejandro Sánchez", foto: "motor-alejandro-sanchez.png", original: true, linkedin: "" },
+        { nombre: "Vasile Catalin",    foto: "motor-vasile-catalin.png",    original: true, linkedin: "" },
         { nombre: "Nombre Apellido 5", foto: "motor-05.svg", linkedin: "" }
       ]
     },
@@ -60,11 +66,15 @@ UPCT.team = {
       descripcion: "Alerones y paquete aerodinámico: generar carga y reducir la resistencia al avance.",
       descripcionPropuesta: true,
       miembros: [
-        { nombre: "Adrián López", foto: "aerodinamica-01.svg", linkedin: "" },   // coordinador
-        { nombre: "Nombre Apellido 2", foto: "aerodinamica-02.svg", linkedin: "" },
-        { nombre: "Nombre Apellido 3", foto: "aerodinamica-03.svg", linkedin: "" },
-        { nombre: "Nombre Apellido 4", foto: "aerodinamica-04.svg", linkedin: "" },
-        { nombre: "Nombre Apellido 5", foto: "aerodinamica-05.svg", linkedin: "" }
+        { nombre: "Adrián López",        foto: "aerodinamica-01.svg", linkedin: "https://www.linkedin.com/in/adri%C3%A1n-l%C3%B3pez-ram%C3%ADrez-48415a36a/" },   // coordinador (sin foto todavía)
+        { nombre: "Javier Marín",        foto: "aerodinamica-javier-marin.png",        original: true, linkedin: "https://www.linkedin.com/in/javier-mar%C3%ADn-higuera-576b10330/" },
+        { nombre: "Rocío Cascales",      foto: "aerodinamica-rocio-cascales.png",      original: true, linkedin: "https://www.linkedin.com/in/roc%C3%ADo-cascales-l%C3%B3pez-2381a1446/" },
+        { nombre: "Carlos Aroca",        foto: "aerodinamica-carlos-aroca.png",        original: true, linkedin: "https://www.linkedin.com/in/carlos-aroca-p%C3%A9rez-b35a6a386/" },
+        { nombre: "Mario Pardo",         foto: "aerodinamica-mario-pardo.png",         original: true, linkedin: "" },
+        { nombre: "José Juan Carrasco",  foto: "aerodinamica-jose-juan-carrasco.png",  original: true, linkedin: "https://www.linkedin.com/in/jose-juan-carrasco-molina-693922445/" },
+        { nombre: "Adrián Martínez",     foto: "aerodinamica-adrian-martinez.png",     original: true, linkedin: "" },
+        { nombre: "Kamila Serrano",      foto: "aerodinamica-kamila-serrano.png",      original: true, linkedin: "https://www.linkedin.com/in/kamila-serrano-005578434/" },
+        { nombre: "Mohammed Tamadahte",  foto: "aerodinamica-mohammed-tamadahte.png",  original: true, linkedin: "https://www.linkedin.com/in/mohammed-tamadahte-bachiri-009362446/" }
       ]
     },
 
@@ -137,10 +147,10 @@ UPCT.team = {
       descripcion: "El puesto del piloto: asiento, volante, pedales, ergonomía y seguridad.",
       descripcionPropuesta: true,
       miembros: [
-        { nombre: "Samuel Poveda",     foto: "cockpit-05.webp", original: true, linkedin: "https://www.linkedin.com/in/samuel-poveda-gonz%C3%A1lez-9789a0396/" },   // coordinador
-        { nombre: "Javier Ortuño",     foto: "cockpit-02.webp", original: true, linkedin: "" },
-        { nombre: "Francisco Peñaranda", foto: "cockpit-03.webp", original: true, linkedin: "" },
-        { nombre: "Laura Martínez",    foto: "cockpit-04.webp", original: true, linkedin: "" },
+        { nombre: "Samuel Poveda",     foto: "cockpit-05.jpg", original: true, linkedin: "https://www.linkedin.com/in/samuel-poveda-gonz%C3%A1lez-9789a0396/" },   // coordinador
+        { nombre: "Javier Ortuño",     foto: "cockpit-02.jpg", original: true, linkedin: "" },
+        { nombre: "Francisco Peñaranda", foto: "cockpit-03.jpg", original: true, linkedin: "" },
+        { nombre: "Laura Martínez",    foto: "cockpit-04.jpg", original: true, linkedin: "" },
         { nombre: "Nombre Apellido 5", foto: "cockpit-05.svg", linkedin: "" },
         { nombre: "Nombre Apellido 6", foto: "cockpit-06.svg", linkedin: "" }
       ]

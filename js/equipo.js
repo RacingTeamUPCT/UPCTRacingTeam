@@ -81,22 +81,26 @@
     '</section>';
   }
 
-  /* ---------- Team leader: bloque aparte, arriba del todo (data.lider en data/team.js) ---------- */
-  function leader(person) {
-    if (!person) { return ''; }
-    total += 1;
-    var title = person.titulo || 'Team leader';
-    return '<section class="dept dept--lider" id="team-leader" aria-labelledby="team-leader-titulo">' +
+  /* ---------- Directiva: bloque aparte, arriba del todo (data.directiva en data/team.js) ----------
+     Cada persona lleva su cargo en "rol" (p. ej. «Team leader»). */
+  function board(group) {
+    var people = (group && group.miembros) || [];
+    if (!people.length) { return ''; }
+    total += people.length;
+    var title = group.titulo || 'Directiva';
+    return '<section class="dept dept--directiva" id="directiva" aria-labelledby="directiva-titulo">' +
       '<header class="dept__head" data-reveal>' +
         '<span class="dept__num" aria-hidden="true"></span>' +
-        '<div><h2 class="dept__title" id="team-leader-titulo">' + esc(title) + '</h2></div>' +
-        '<span class="dept__count">1 persona</span>' +
+        '<div><h2 class="dept__title" id="directiva-titulo">' + esc(title) + '</h2></div>' +
+        '<span class="dept__count">' + people.length + (people.length === 1 ? ' persona' : ' personas') + '</span>' +
       '</header>' +
-      '<ul class="team-grid" role="list">' + member(person, { nombre: title }, 0, title) + '</ul>' +
+      '<ul class="team-grid" role="list">' +
+        people.map(function (p, i) { return member(p, { nombre: title }, i, p.rol || title); }).join('') +
+      '</ul>' +
     '</section>';
   }
 
-  root.innerHTML = leader(data.lider) + depts.map(department).join('');
+  root.innerHTML = board(data.directiva) + depts.map(department).join('');
 
   indexList.innerHTML = depts.map(function (dept, i) {
     return '<li><a class="team-index__link" href="#' + esc(dept.ancla) + '" data-id="' + esc(dept.ancla) + '">' +
