@@ -52,11 +52,10 @@ UPCT.team = {
       descripcion: "Diseño, preparación y puesta a punto de la unidad de potencia del monoplaza.",
       descripcionPropuesta: true,
       miembros: [
-        { nombre: "Nombre Apellido 1", foto: "motor-01.svg", linkedin: "" },   // coordinador
-        { nombre: "Pablo Alba",        foto: "motor-pablo-alba.png",        original: true, linkedin: "" },
+        { nombre: "Pablo Alba",        foto: "motor-pablo-alba.png",        original: true, linkedin: "" },   // coordinador
         { nombre: "Alejandro Sánchez", foto: "motor-alejandro-sanchez.png", original: true, linkedin: "" },
         { nombre: "Vasile Catalin",    foto: "motor-vasile-catalin.png",    original: true, linkedin: "" },
-        { nombre: "Nombre Apellido 5", foto: "motor-05.svg", linkedin: "" }
+        { nombre: "Nombre Apellido 4", foto: "motor-04.svg", linkedin: "" }
       ]
     },
 
@@ -151,8 +150,11 @@ UPCT.team = {
         { nombre: "Javier Ortuño",     foto: "cockpit-02.jpg", original: true, linkedin: "" },
         { nombre: "Francisco Peñaranda", foto: "cockpit-03.jpg", original: true, linkedin: "" },
         { nombre: "Laura Martínez",    foto: "cockpit-04.jpg", original: true, linkedin: "" },
-        { nombre: "Nombre Apellido 5", foto: "cockpit-05.svg", linkedin: "" },
-        { nombre: "Nombre Apellido 6", foto: "cockpit-06.svg", linkedin: "" }
+        { nombre: "Jorge Fernández",    foto: "cockpit-05.svg", linkedin: "" },   // sin foto todavía
+        { nombre: "Laura Escribano",    foto: "cockpit-06.svg", linkedin: "" },
+        { nombre: "María Ortín",        foto: "cockpit-07.svg", linkedin: "" },
+        { nombre: "Aitor Martín",       foto: "cockpit-08.svg", linkedin: "" },
+        { nombre: "Izan Roselló",       foto: "cockpit-09.svg", linkedin: "" }
       ]
     },
 
@@ -163,7 +165,8 @@ UPCT.team = {
       descripcionPropuesta: true,
       miembros: [
         { nombre: "Nombre Apellido 1", foto: "id-01.svg", linkedin: "" },   // coordinador
-        { nombre: "Nombre Apellido 2", foto: "id-02.svg", linkedin: "" }
+        { nombre: "Ginés Cerón",       foto: "id-02.svg", linkedin: "" },   // sin foto todavía
+        { nombre: "Gonzalo Sánchez",   foto: "id-03.svg", linkedin: "" }
       ]
     }
   ]
