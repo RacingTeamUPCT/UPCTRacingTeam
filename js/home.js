@@ -205,7 +205,7 @@
   }
 
   /* ---------- Últimas noticias (solo si hay) ---------- */
-  var posts = ((UPCT.blog && UPCT.blog.posts) || []).slice().sort(function (a, b) { return String(b.fecha).localeCompare(String(a.fecha)); }).slice(0, 3);
+  var posts = ((UPCT.blog && UPCT.blog.posts) || []).slice().sort(function (a, b) { return String(b.fecha).localeCompare(String(a.fecha)); }).slice(0, 1);
   var noticias = $('noticias');
   function paintNews() {
     $('noticias-list').innerHTML = posts.map(function (p, i) { return UPCT.postCard ? UPCT.postCard(p, i === 0) : ''; }).join('');

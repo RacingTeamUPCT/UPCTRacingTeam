@@ -72,9 +72,10 @@
   function renderArticle(p) {
     p = UPCT.loc(p);
     /* Orden: vídeo (o foto) arriba del todo, luego título y cuerpo */
+    var cover = UPCT.postCover(p);
     var media = p.video
       ? '<figure>' + UPCT.postVideo(p) + '</figure>'
-      : (p.foto ? '<figure><img src="' + esc(p.foto) + '" alt="' + esc(p.fotoAlt || '') + '" decoding="async"></figure>' : '');
+      : (p.fotos && p.fotos.length ? UPCT.postGallery(p) : (cover ? '<figure><img src="' + esc(cover.src) + '" alt="' + esc(cover.alt) + '" decoding="async"></figure>' : ''));
     artRoot.innerHTML = '<div class="blog-articulo">' +
       '<p><a class="link-line" href="blog.html">Volver al blog</a></p>' +
       media +

@@ -38,7 +38,7 @@
   /* Vídeo de una noticia (con controles). preload="metadata" + #t=0.1 muestra un fotograma sin descargarlo entero. */
   UPCT.postVideo = function (p) {
     if (!p.video) { return ''; }
-    return '<video class="post__video" controls playsinline preload="metadata" src="' + esc(p.video) + '#t=0.1"' +
+    return '<video class="post__video" controls playsinline preload="metadata"' + (p.poster ? ' poster="' + esc(p.poster) + '"' : '') + ' src="' + esc(p.video) + (p.poster ? '' : '#t=0.1') + '"' +
       ' aria-label="' + esc(p.videoAlt || p.titulo) + '"></video>';
   };
 
@@ -52,13 +52,34 @@
     return cut.slice(0, Math.max(cut.lastIndexOf(' '), 0)).replace(/[\s,.;:]+$/, '') + '…';
   };
 
+  /* Alt de una foto de la galería (con versión en inglés si la hay) */
+  function photoAlt(f) { return (isEN() && f.en) ? f.en : (f.alt || ''); }
+
+  /* Foto principal de una noticia: «foto» suelta o la primera de «fotos» */
+  UPCT.postCover = function (p) {
+    if (p.fotos && p.fotos.length) { return { src: p.fotos[0].src, alt: photoAlt(p.fotos[0]) }; }
+    if (p.foto) { return { src: p.foto, alt: p.fotoAlt || '' }; }
+    return null;
+  };
+
+  /* Galería de varias fotos para el artículo: una grande y el resto debajo, sin recortar las proporciones al cargar */
+  UPCT.postGallery = function (p) {
+    var list = p.fotos || [];
+    if (!list.length) { return ''; }
+    return '<ul class="post-gallery post-gallery--' + Math.min(list.length, 4) + '" role="list">' + list.map(function (f) {
+      return '<li><img src="' + esc(f.src) + '" alt="' + esc(photoAlt(f)) + '"' +
+        (f.ancho && f.alto ? ' width="' + esc(f.ancho) + '" height="' + esc(f.alto) + '"' : '') + ' loading="lazy" decoding="async"></li>';
+    }).join('') + '</ul>';
+  };
+
   /* Tarjeta de una noticia: título, vídeo (o foto), comienzo del texto y «Leer más» (lleva a blog.html#id) */
   UPCT.postCard = function (p, wide) {
     p = UPCT.loc(p);
     var href = 'blog.html#' + esc(p.id);
+    var cover = UPCT.postCover(p);
     var media = p.video
       ? UPCT.postVideo(p)
-      : (p.foto ? '<a class="post__media" href="' + href + '" tabindex="-1" aria-hidden="true"><img src="' + esc(p.foto) + '" alt="' + esc(p.fotoAlt || '') + '" loading="lazy" decoding="async"></a>' : '');
+      : (cover ? '<a class="post__media" href="' + href + '" tabindex="-1" aria-hidden="true"><img src="' + esc(cover.src) + '" alt="' + esc(cover.alt) + '" loading="lazy" decoding="async"></a>' : '');
     var excerpt = UPCT.postExcerpt(p);
     return '<li class="post' + (wide ? ' post--wide' : '') + '" data-reveal>' +
       '<div class="post__meta"><span class="post__cat">' + esc(p.categoria || '') + '</span><span>' + esc(UPCT.formatDate(p.fecha)) + '</span></div>' +

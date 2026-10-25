@@ -1891,3 +1891,31 @@ html.is-leaving main, html.is-leaving .site-footer { opacity: 0; transition: opa
 @media (min-width: 900px) { .post--wide { grid-column: span 2; } }
 .blog-articulo figure .post__video { aspect-ratio: 16 / 9; }
 .blog-articulo a.link-line { overflow-wrap: anywhere; }
+
+
+/* 22. JUEGO OFICIAL EN LA PORTADA + GALERÍA DE NOTICIAS ------------------- */
+.juego { padding-block: var(--section-y); background: var(--surface); }
+.juego__grid { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); gap: clamp(1.75rem, 4.5vw, 4.5rem); align-items: center; }
+.juego__video { display: block; width: 100%; aspect-ratio: 16 / 9; background: #0a1830; object-fit: contain; box-shadow: 0 1.25rem 3rem -1.25rem rgb(8 32 61 / 0.55); }
+.juego__tag { margin: 0 0 0.9rem; display: inline-block; padding: 0.3rem 0.8rem; background: var(--accent); color: #fff; font-family: var(--font-display); font-style: italic; font-weight: 700; font-size: 0.9375rem; letter-spacing: 0.1em; text-transform: uppercase; clip-path: polygon(8px 0, 100% 0, calc(100% - 8px) 100%, 0 100%); }
+.juego__body .t-section { margin: 0 0 1rem; }
+.juego__lede { margin: 0 0 1.75rem; max-width: 30rem; font-size: var(--fs-md); line-height: 1.45; color: var(--text-soft); }
+.btn--lg { padding: 1.25rem 3.25rem 1.25rem 2.5rem; font-size: 1.375rem; }
+.juego__nota { margin: 1rem 0 0; font-size: var(--fs-sm); color: var(--text-muted); }
+@media (max-width: 860px) { .juego__grid { grid-template-columns: minmax(0, 1fr); } }
+
+/* Galería de varias fotos al abrir una noticia: la primera, grande; el resto, debajo */
+.post-gallery { list-style: none; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.5rem; margin: 1.75rem 0; padding: 0; }
+.post-gallery li { margin: 0; min-width: 0; }
+.post-gallery img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.post-gallery li:first-child { grid-column: 1 / -1; }
+.post-gallery li:first-child img { height: auto; }
+.post-gallery li:not(:first-child) { aspect-ratio: 3 / 4; }
+.post-gallery--1 li:first-child img, .post-gallery--2 li:first-child img { height: auto; }
+.post-gallery--2 li:not(:first-child) { grid-column: 1 / -1; aspect-ratio: auto; }
+.blog-articulo:has(.post-gallery) { max-width: 54rem; }
+@media (max-width: 560px) { .post-gallery li:not(:first-child) { aspect-ratio: 1 / 1; } }
+
+/* Galería de 3 fotos: una grande y dos debajo, a partes iguales */
+.post-gallery--3 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.post-gallery--3 li:not(:first-child) { aspect-ratio: 3 / 2; }

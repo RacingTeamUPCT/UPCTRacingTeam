@@ -126,6 +126,24 @@
       <figcaption>El equipo en el pit lane</figcaption>
     </figure>
 
+
+    <!-- El juego oficial del equipo: tráiler y botón para jugar -->
+    <section class="juego" id="juego" aria-labelledby="juego-t">
+    <div class="container juego__grid">
+      <div class="juego__media" data-reveal>
+        <video class="juego__video" controls playsinline preload="metadata" poster="assets/img/juego/portada-juego.jpg" src="assets/video/trailer-juego.mp4"
+               aria-label="Tráiler del juego «Ingeniero por un día»"></video>
+      </div>
+      <div class="juego__body" data-reveal>
+        <p class="juego__tag">El juego oficial del UPCT Racing Team</p>
+        <h2 class="t-section" id="juego-t">Ingeniero por un día</h2>
+        <p class="juego__lede">Diseña el monoplaza del equipo, ajústalo en el túnel de viento y sal a pista contra 20 rivales.</p>
+        <a class="btn btn--lg" href="assets/juego/ingeniero-por-un-dia.html" target="_blank" rel="noopener noreferrer">Jugar ahora <span data-icon="arrow"></span><span class="visually-hidden"> (se abre en una pestaña nueva)</span></a>
+        <p class="juego__nota">Se juega en el navegador, sin instalar nada. Partida de unos 4 minutos.</p>
+      </div>
+    </div>
+  </section>
+
     <!-- INSTAGRAM: widget automático si hay uno configurado en data/site.js; si no, cuadrícula de fotos que lleva al perfil -->
     <section class="section" id="insta" aria-labelledby="insta-t">
       <div class="container">
@@ -145,7 +163,7 @@
     <section class="section section--band" id="noticias" aria-labelledby="noticias-t" hidden>
       <div class="container">
         <div class="sec-head">
-          <div><h2 class="t-section" id="noticias-t">Últimas noticias</h2></div>
+          <div><h2 class="t-section" id="noticias-t">Última noticia</h2></div>
           <a class="link-line" href="blog.html">Ver todas</a>
         </div>
         <ul class="posts" id="noticias-list" role="list"></ul>
