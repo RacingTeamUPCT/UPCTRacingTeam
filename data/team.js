@@ -25,7 +25,8 @@ UPCT.team = {
     titulo: "Directiva",
     miembros: [
       { nombre: "Nicole Lengrand", rol: "Team leader",               foto: "lider.svg", linkedin: "" },
-      { nombre: "Sergio García",   rol: "Coordinador business plan", foto: "directiva-sergio-garcia.png", original: true, linkedin: "" }
+      { nombre: "Sergio García",   rol: "Coordinador business plan", foto: "directiva-sergio-garcia.png", original: true, linkedin: "" },
+      { nombre: "Vasile Catalin",  rol: "Secretario",                foto: "motor-vasile-catalin.png",    original: true, linkedin: "" }   // también está en Motor
     ]
   },
 

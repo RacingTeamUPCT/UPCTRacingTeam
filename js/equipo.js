@@ -23,6 +23,15 @@
   var depts = data.departamentos || [];
   var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
   var total = 0;
+  var seenNames = {};
+  /* Total de personas: quien está en varios sitios (p. ej. Directiva y su departamento) cuenta una sola vez; los huecos provisionales cuentan todos */
+  function countPeople(list) {
+    list.forEach(function (p) {
+      var key = String(p.nombre || "").trim().toLowerCase();
+      if (!key || /^nombre apellido/.test(key)) { total += 1; return; }
+      if (!seenNames[key]) { seenNames[key] = true; total += 1; }
+    });
+  }
   var anyLinkedin = false;
 
   /* ---------- Avatar de emergencia (SVG en línea) ---------- */
@@ -66,7 +75,7 @@
   /* ---------- Un departamento ---------- */
   function department(dept, index) {
     var people = dept.miembros || [];
-    total += people.length;
+    countPeople(people);
     var id = esc(dept.ancla);
     return '<section class="dept" id="' + id + '" aria-labelledby="' + id + '-titulo">' +
       '<header class="dept__head" data-reveal>' +
@@ -86,7 +95,7 @@
   function board(group) {
     var people = (group && group.miembros) || [];
     if (!people.length) { return ''; }
-    total += people.length;
+    countPeople(people);
     var title = group.titulo || 'Directiva';
     return '<section class="dept dept--directiva" id="directiva" aria-labelledby="directiva-titulo">' +
       '<header class="dept__head" data-reveal>' +
