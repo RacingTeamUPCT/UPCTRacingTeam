@@ -36,8 +36,8 @@ UPCT.team = {
       descripcion: "Comunicación, imagen de marca, redes sociales y relación con patrocinadores.",
       descripcionPropuesta: true,
       miembros: [
-        { nombre: "Nombre Apellido 1", foto: "marketing-01.svg", linkedin: "" },   // coordinador
-        { nombre: "Nombre Apellido 2", foto: "marketing-02.svg", linkedin: "" },
+        { nombre: "Iván Sabater", foto: "marketing-ivan-sabater.png", original: true, linkedin: "https://www.linkedin.com/in/iv%C3%A1n-sabater-122244442/" },   // coordinador
+        { nombre: "Jorge Perea",  foto: "marketing-jorge-perea.png",  original: true, linkedin: "https://www.linkedin.com/in/jorge-perea-l%C3%B3pez-59389b390/" },
         { nombre: "Nombre Apellido 3", foto: "marketing-03.svg", linkedin: "" },
         { nombre: "Nombre Apellido 4", foto: "marketing-04.svg", linkedin: "" },
         { nombre: "Nombre Apellido 5", foto: "marketing-05.svg", linkedin: "" },
