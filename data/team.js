@@ -65,7 +65,7 @@ UPCT.team = {
       descripcion: "Alerones y paquete aerodinámico: generar carga y reducir la resistencia al avance.",
       descripcionPropuesta: true,
       miembros: [
-        { nombre: "Adrián López",        foto: "aerodinamica-01.svg", linkedin: "https://www.linkedin.com/in/adri%C3%A1n-l%C3%B3pez-ram%C3%ADrez-48415a36a/" },   // coordinador (sin foto todavía)
+        { nombre: "Adrián López",        foto: "aerodinamica-adrian-lopez.png", original: true, linkedin: "https://www.linkedin.com/in/adri%C3%A1n-l%C3%B3pez-ram%C3%ADrez-48415a36a/" },   // coordinador (sin foto todavía)
         { nombre: "Javier Marín",        foto: "aerodinamica-javier-marin.png",        original: true, linkedin: "https://www.linkedin.com/in/javier-mar%C3%ADn-higuera-576b10330/" },
         { nombre: "Rocío Cascales",      foto: "aerodinamica-rocio-cascales.png",      original: true, linkedin: "https://www.linkedin.com/in/roc%C3%ADo-cascales-l%C3%B3pez-2381a1446/" },
         { nombre: "Carlos Aroca",        foto: "aerodinamica-carlos-aroca.png",        original: true, linkedin: "https://www.linkedin.com/in/carlos-aroca-p%C3%A9rez-b35a6a386/" },
