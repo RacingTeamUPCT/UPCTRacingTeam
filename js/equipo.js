@@ -20,7 +20,8 @@
   var esc = UPCT.esc;
   var pad = UPCT.pad;
   var dir = data.carpetaFotos || 'assets/img/team/';
-  var depts = data.departamentos || [];
+  /* Departamentos por orden alfabético (la Directiva va siempre arriba, aparte) */
+  var depts = (data.departamentos || []).slice().sort(function (a, b) { return String(a.nombre).localeCompare(String(b.nombre), 'es', { sensitivity: 'base' }); });
   var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
   var total = 0;
   var seenNames = {};

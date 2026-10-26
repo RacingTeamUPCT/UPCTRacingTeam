@@ -50,7 +50,10 @@
     '</div>';
   }
 
-  list.innerHTML = (data.departamentos || []).map(function (dept, i) {
+  /* Departamentos por orden alfabético */
+  var ordered = (data.departamentos || []).slice().sort(function (a, b) { return String(a.nombre).localeCompare(String(b.nombre), 'es', { sensitivity: 'base' }); });
+
+  list.innerHTML = ordered.map(function (dept, i) {
     return '<li class="garage-entry" data-reveal style="--reveal-delay:' + (i * 45) + 'ms">' +
       '<button class="garage-item" type="button" id="gb-' + esc(dept.id) + '" aria-expanded="false" aria-controls="gp-' + esc(dept.id) + '"' +
         ' data-dept="' + esc(dept.id) + '" data-zona="' + esc(dept.zonaCoche || '') + '">' +
