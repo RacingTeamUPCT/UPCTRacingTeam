@@ -42,7 +42,7 @@ UPCT.team = {
         { nombre: "Miren Andollo",    foto: "marketing-miren-andollo.png",   original: true, coordinador: true, linkedin: "" },
         { nombre: "Jorge Perea",      foto: "marketing-jorge-perea.png",     original: true, linkedin: "https://www.linkedin.com/in/jorge-perea-l%C3%B3pez-59389b390/" },
         { nombre: "Álvaro Prieto",    foto: "marketing-alvaro-prieto.png",   original: true, linkedin: "" },
-        { nombre: "Joaquín Parraga",  foto: "marketing-joaquin-parraga.png", original: true, linkedin: "" },
+        { nombre: "Joaquín Párraga",  foto: "marketing-joaquin-parraga.png", original: true, linkedin: "" },
         { nombre: "Nombre Apellido 6", foto: "marketing-06.svg", linkedin: "" },
         { nombre: "Nombre Apellido 7", foto: "marketing-07.svg", linkedin: "" }
       ]
@@ -103,8 +103,9 @@ UPCT.team = {
       descripcion: "Llevar la potencia a las ruedas y detener el coche con precisión.",
       descripcionPropuesta: true,
       miembros: [
-        { nombre: "Nombre Apellido 1", foto: "transmision-frenos-01.svg", linkedin: "" },   // coordinador
-        { nombre: "Nombre Apellido 2", foto: "transmision-frenos-02.svg", linkedin: "" }
+        { nombre: "Sergio Múgica",  foto: "transmision-frenos-01.svg", linkedin: "" },   // coordinador
+        { nombre: "Antonio Arias",  foto: "transmision-frenos-02.svg", linkedin: "" },
+        { nombre: "Jose Francisco", foto: "transmision-frenos-03.svg", linkedin: "" }
       ]
     },
 
@@ -134,11 +135,15 @@ UPCT.team = {
       descripcion: "Suspensión, dirección y neumáticos: el comportamiento del coche en pista.",
       descripcionPropuesta: true,
       miembros: [
-        { nombre: "Nombre Apellido 1", foto: "dinamica-01.svg", linkedin: "" },   // coordinador
-        { nombre: "Nombre Apellido 2", foto: "dinamica-02.svg", linkedin: "" },
-        { nombre: "Nombre Apellido 3", foto: "dinamica-03.svg", linkedin: "" },
-        { nombre: "Nombre Apellido 4", foto: "dinamica-04.svg", linkedin: "" },
-        { nombre: "Nombre Apellido 5", foto: "dinamica-05.svg", linkedin: "" }
+        { nombre: "Alejandro Montoya", foto: "dinamica-01.svg", linkedin: "" },   // coordinador
+        { nombre: "Rafael Ramírez",    foto: "dinamica-02.svg", linkedin: "" },
+        { nombre: "Sergio Alcaraz",    foto: "dinamica-03.svg", linkedin: "" },
+        { nombre: "Sergio de Haro",    foto: "dinamica-04.svg", linkedin: "" },
+        { nombre: "Sofia Orenes",      foto: "dinamica-05.svg", linkedin: "" },
+        { nombre: "Salsabi Raissouni", foto: "dinamica-06.svg", linkedin: "" },
+        { nombre: "Vicente Morales",   foto: "dinamica-07.svg", linkedin: "" },
+        { nombre: "Mario Serrano",     foto: "dinamica-08.svg", linkedin: "" },
+        { nombre: "Jaime Jover",       foto: "dinamica-09.svg", linkedin: "" }
       ]
     },
 
@@ -166,8 +171,8 @@ UPCT.team = {
       descripcion: "Investigación y desarrollo: explorar ideas para futuras evoluciones del coche.",
       descripcionPropuesta: true,
       miembros: [
-        { nombre: "Nombre Apellido 1", foto: "id-01.svg", linkedin: "" },   // coordinador
-        { nombre: "Ginés Cerón",       foto: "id-02.svg", linkedin: "" },   // sin foto todavía
+        /* I+D no tiene coordinador: coordinador: false quita la etiqueta al primer miembro */
+        { nombre: "Ginés Cerón",       foto: "id-02.svg", coordinador: false, linkedin: "" },   // sin foto todavía
         { nombre: "Gonzalo Sánchez",   foto: "id-03.svg", linkedin: "" }
       ]
     }
