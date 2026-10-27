@@ -37,11 +37,12 @@ UPCT.team = {
       descripcion: "Comunicación, imagen de marca, redes sociales y relación con patrocinadores.",
       descripcionPropuesta: true,
       miembros: [
-        { nombre: "Iván Sabater", foto: "marketing-ivan-sabater.png", original: true, linkedin: "https://www.linkedin.com/in/iv%C3%A1n-sabater-122244442/" },   // coordinador
-        { nombre: "Jorge Perea",  foto: "marketing-jorge-perea.png",  original: true, linkedin: "https://www.linkedin.com/in/jorge-perea-l%C3%B3pez-59389b390/" },
-        { nombre: "Nombre Apellido 3", foto: "marketing-03.svg", linkedin: "" },
-        { nombre: "Nombre Apellido 4", foto: "marketing-04.svg", linkedin: "" },
-        { nombre: "Nombre Apellido 5", foto: "marketing-05.svg", linkedin: "" },
+        /* coordinador: true → lleva la etiqueta «Coordinador» (Marketing tiene dos coordinadores) */
+        { nombre: "Iván Sabater",     foto: "marketing-ivan-sabater.png",    original: true, coordinador: true, linkedin: "https://www.linkedin.com/in/iv%C3%A1n-sabater-122244442/" },
+        { nombre: "Miren Andollo",    foto: "marketing-miren-andollo.png",   original: true, coordinador: true, linkedin: "" },
+        { nombre: "Jorge Perea",      foto: "marketing-jorge-perea.png",     original: true, linkedin: "https://www.linkedin.com/in/jorge-perea-l%C3%B3pez-59389b390/" },
+        { nombre: "Álvaro Prieto",    foto: "marketing-alvaro-prieto.png",   original: true, linkedin: "" },
+        { nombre: "Joaquín Parraga",  foto: "marketing-joaquin-parraga.png", original: true, linkedin: "" },
         { nombre: "Nombre Apellido 6", foto: "marketing-06.svg", linkedin: "" },
         { nombre: "Nombre Apellido 7", foto: "marketing-07.svg", linkedin: "" }
       ]
@@ -84,15 +85,15 @@ UPCT.team = {
       descripcion: "La estructura del coche: rígida, segura y lo más ligera posible.",
       descripcionPropuesta: true,
       miembros: [
-        { nombre: "Guillermo Galván",        foto: "chasis-01.svg", linkedin: "" },   // coordinador
-        { nombre: "Jaime Franco",            foto: "chasis-02.svg", linkedin: "" },
-        { nombre: "José Francisco Martínez", foto: "chasis-03.svg", linkedin: "" },
-        { nombre: "Miguel Tudela",           foto: "chasis-04.svg", linkedin: "" },
+        { nombre: "Guillermo Galván",        foto: "chasis-guillermo-galvan.png", original: true, linkedin: "" },   // coordinador
+        { nombre: "Jaime Franco",            foto: "chasis-jaime-franco.png", original: true, linkedin: "" },
+        { nombre: "Jose Francisco Martínez", foto: "chasis-jose-francisco-martinez.png", original: true, linkedin: "" },
+        { nombre: "Miguel Tudela",           foto: "chasis-miguel-tudela.png", original: true, linkedin: "" },
         { nombre: "Francisco Guardiola",     foto: "chasis-05.svg", linkedin: "" },
-        { nombre: "Carlos Sánchez",          foto: "chasis-06.svg", linkedin: "" },
+        { nombre: "Carlos Sánchez",          foto: "chasis-carlos-sanchez.png", original: true, linkedin: "" },
         { nombre: "José Manuel Picazo",      foto: "chasis-07.svg", linkedin: "" },
-        { nombre: "Sandra Martínez",         foto: "chasis-08.svg", linkedin: "" },
-        { nombre: "Ginés Conesa",            foto: "chasis-09.svg", linkedin: "" }
+        { nombre: "Sandra Martínez-Cabeza de Vaca",         foto: "chasis-sandra-martinez-cabeza-de-vaca.png", original: true, linkedin: "" },
+        { nombre: "Ginés Conesa",            foto: "chasis-gines-conesa.png", original: true, linkedin: "" }
       ]
     },
 
