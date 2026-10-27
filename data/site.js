@@ -123,8 +123,8 @@ UPCT.site = {
        Mientras proveedor o id estén vacíos, se muestra una cuadrícula de fotos del equipo que lleva al perfil.
        [PENDIENTE: elegir proveedor, conectar la cuenta de Instagram y pegar el identificador] */
   instagram: {
-    usuario: "upct_racing_team",
-    url: "https://www.instagram.com/upct_racing_team/",
+    usuario: "upctracing",
+    url: "https://www.instagram.com/upctracing/",
     widget: { proveedor: "", id: "" }
   },
 
@@ -139,7 +139,7 @@ UPCT.site = {
      Iconos disponibles: instagram, linkedin, youtube, x. Cualquier otro id usa un icono genérico.
      Las que tengan la URL vacía se muestran como pendientes en Contacto. */
   redes: [
-    { id: "instagram", nombre: "Instagram", url: "https://www.instagram.com/upct_racing_team?utm_source=ig_web_button_share_sheet&obrf=ZDNlZDc0MzIxNw==" },
+    { id: "instagram", nombre: "Instagram", url: "https://www.instagram.com/upctracing/" },
     { id: "linkedin",  nombre: "LinkedIn",  url: "https://www.linkedin.com/company/upctracingteam/" }
   ],
 

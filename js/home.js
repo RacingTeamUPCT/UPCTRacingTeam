@@ -139,7 +139,7 @@
   var handle = $('insta-handle');
   if (handle && instaUrl) {
     handle.href = instaUrl;
-    handle.innerHTML = UPCT.icon('instagram') + '@' + esc(insta.usuario || 'upct_racing_team') +
+    handle.innerHTML = UPCT.icon('instagram') + '@' + esc(insta.usuario || 'upctracing') +
       '<span class="visually-hidden"> (se abre en una pestaña nueva)</span>';
   }
 
