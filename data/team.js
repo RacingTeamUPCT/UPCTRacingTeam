@@ -43,8 +43,8 @@ UPCT.team = {
         { nombre: "Jorge Perea",      foto: "marketing-jorge-perea.png",     original: true, linkedin: "https://www.linkedin.com/in/jorge-perea-l%C3%B3pez-59389b390/" },
         { nombre: "Álvaro Prieto",    foto: "marketing-alvaro-prieto.png",   original: true, linkedin: "" },
         { nombre: "Joaquín Párraga",  foto: "marketing-joaquin-parraga.png", original: true, linkedin: "" },
-        { nombre: "Nombre Apellido 6", foto: "marketing-06.svg", linkedin: "" },
-        { nombre: "Nombre Apellido 7", foto: "marketing-07.svg", linkedin: "" }
+        { nombre: "Aitor José Milanes", foto: "marketing-06.svg", linkedin: "" },
+        { nombre: "Francisco Castro",   foto: "marketing-07.svg", linkedin: "" }
       ]
     },
 
@@ -56,8 +56,7 @@ UPCT.team = {
       miembros: [
         { nombre: "Pablo Alba",        foto: "motor-pablo-alba.png",        original: true, linkedin: "" },   // coordinador
         { nombre: "Alejandro Sánchez", foto: "motor-alejandro-sanchez.png", original: true, linkedin: "" },
-        { nombre: "Vasile Catalin",    foto: "motor-vasile-catalin.png",    original: true, linkedin: "" },
-        { nombre: "Nombre Apellido 4", foto: "motor-04.svg", linkedin: "" }
+        { nombre: "Vasile Catalin",    foto: "motor-vasile-catalin.png",    original: true, linkedin: "" }
       ]
     },
 
