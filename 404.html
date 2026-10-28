@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Esta página se sirve en cualquier dirección que no exista (p. ej. /algo/que/no/existe):
+       con <base href="/"> los estilos, scripts y enlaces se resuelven siempre desde la raíz de la web. -->
+  <base href="/">
+  <title>Te has salido de pista · UPCT Racing Team</title>
+  <meta name="description" content="Esta página no existe. Vuelve al inicio o echa un vistazo al garaje del UPCT Racing Team.">
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="color-scheme" content="light">
+  <link rel="icon" href="favicon.ico" sizes="48x48">
+  <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <link rel="manifest" href="manifest.webmanifest">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,500;0,600;0,700;0,800;1,500;1,600;1,700;1,800&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap">
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/styles.css">
+
+  <script src="data/site.js"></script>
+  <script src="data/sponsors.js"></script>
+  <script src="data/i18n-en.js"></script>
+  <script src="js/i18n.js"></script>
+  <script src="js/components.js"></script>
+  <script src="js/main.js" defer></script>
+</head>
+<body>
+  <site-header></site-header>
+
+  <main id="contenido" tabindex="-1">
+
+    <header class="page-head">
+      <span class="diag" aria-hidden="true"></span>
+      <div class="container">
+        <h1 class="t-page">Te has salido de pista</h1>
+        <p class="lede">Esta página no existe</p>
+        <div class="hero__actions">
+          <a class="btn" href="index.html">Volver al inicio <span data-icon="arrow"></span></a>
+          <a class="btn btn--ghost" href="garaje.html">Ver el garaje</a>
+        </div>
+      </div>
+    </header>
+
+  </main>
+
+  <site-footer></site-footer>
+</body>
+</html>
