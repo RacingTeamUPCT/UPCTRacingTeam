@@ -39,7 +39,7 @@ UPCT.team = {
       miembros: [
         /* coordinador: true → lleva la etiqueta «Coordinador» (Marketing tiene dos coordinadores) */
         { nombre: "Iván Sabater",     foto: "marketing-ivan-sabater.png",    original: true, coordinador: true, linkedin: "https://www.linkedin.com/in/iv%C3%A1n-sabater-122244442/" },
-        { nombre: "Miren Andollo",    foto: "marketing-miren-andollo.png",   original: true, coordinador: true, linkedin: "" },
+        { nombre: "Miren Andollo",    foto: "marketing-miren-andollo.png",   original: true, coordinadora: true, linkedin: "" },
         { nombre: "Jorge Perea",      foto: "marketing-jorge-perea.png",     original: true, linkedin: "https://www.linkedin.com/in/jorge-perea-l%C3%B3pez-59389b390/" },
         { nombre: "Álvaro Prieto",    foto: "marketing-alvaro-prieto.png",   original: true, linkedin: "" },
         { nombre: "Joaquín Párraga",  foto: "marketing-joaquin-parraga.png", original: true, linkedin: "" },

@@ -132,7 +132,7 @@ UPCT.site = {
   fundacion: 2008,
 
   /* Cifras de la portada. «personas» fija el número de estudiantes del equipo (si lo quitas, se cuentan los de data/team.js). */
-  cifras: { personas: 60 },
+  cifras: { personas: 63 },
 
   /* Redes sociales (se abren en pestaña nueva), con icono en blanco.
      Para añadir otra, copia una línea y escribe su URL completa.

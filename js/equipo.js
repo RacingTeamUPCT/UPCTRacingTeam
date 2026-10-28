@@ -69,7 +69,7 @@
     /* El primer miembro de cada departamento es el coordinador */
     return '<li class="member" data-reveal style="--reveal-delay:' + ((i % 4) * 70) + 'ms">' + media +
       '<p class="member__name">' + esc(name) + '</p>' +
-      (role ? '<p class="member__role">' + esc(role) + '</p>' : ((person.coordinador || (i === 0 && person.coordinador !== false)) ? '<p class="member__role">Coordinador</p>' : '')) +
+      (role ? '<p class="member__role">' + esc(role) + '</p>' : ((person.coordinador || person.coordinadora || (i === 0 && person.coordinador !== false)) ? '<p class="member__role">' + (person.coordinadora ? 'Coordinadora' : 'Coordinador') + '</p>' : '')) +
     '</li>';
   }
 

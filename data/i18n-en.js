@@ -197,6 +197,7 @@ UPCT.i18nEN = {
     "Haz clic en una foto para visitar el perfil de LinkedIn de esa persona.": "Click a photo to visit that person's LinkedIn profile.",
     "Departamentos": "Departments",
     "Coordinador": "Coordinator",
+    "Coordinadora": "Coordinator",
     "Nombre Apellido 1": "First name Last name 1", "Nombre Apellido 2": "First name Last name 2",
     "Nombre Apellido 3": "First name Last name 3", "Nombre Apellido 4": "First name Last name 4",
     "Nombre Apellido 5": "First name Last name 5", "Nombre Apellido 6": "First name Last name 6",
