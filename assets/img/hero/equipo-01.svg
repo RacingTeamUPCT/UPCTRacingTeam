@@ -2,7 +2,7 @@
   <defs>
     <radialGradient id="bg" cx="50%" cy="38%" r="80%">
       <stop offset="0" stop-color="#0b2a4d"/>
-      <stop offset="1" stop-color="#0054a0"/>
+      <stop offset="1" stop-color="#022052"/>
     </radialGradient>
     <linearGradient id="ln" gradientUnits="userSpaceOnUse" x1="760" y1="840" x2="1050" y2="-40">
       <stop offset="0" stop-color="#b1e0fe" stop-opacity="0"/>
