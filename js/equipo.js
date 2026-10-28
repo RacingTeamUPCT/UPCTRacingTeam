@@ -43,8 +43,8 @@
   }
   function fallbackAvatar(name) {
     var svg = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500"><rect width="400" height="500" fill="#d3e5f5"/>' +
-      '<line x1="110" y1="520" x2="306" y2="-20" stroke="#0054a0" stroke-width="1.5"/>' +
-      '<text x="200" y="278" text-anchor="middle" font-family="Arial Narrow,Arial,sans-serif" font-size="170" font-weight="700" fill="#08203d">' +
+      '<line x1="110" y1="520" x2="306" y2="-20" stroke="#022052" stroke-width="1.5"/>' +
+      '<text x="200" y="278" text-anchor="middle" font-family="Arial Narrow,Arial,sans-serif" font-size="170" font-weight="700" fill="#04122e">' +
       esc(initials(name)) + '</text></svg>';
     return 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(svg);
   }

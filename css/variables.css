@@ -15,11 +15,11 @@
 
 :root {
   /* ---------- Color: azules oficiales y tintas ---------- */
-  --c-ink:      #0a1c30;   /* azul tinta: titulares, texto principal y botones oscuros */
-  --c-navy:     #0a1c30;   /* azul tinta oscuro: pie de página */
-  --c-navy-2:   #0a3a68;
-  --c-blue:     #0054a0;   /* azul UPCT (Pantone 2945 C) */
-  --c-blue-hi:  #0b6abd;
+  --c-ink:      #04122e;   /* azul tinta: titulares, texto principal y botones oscuros */
+  --c-navy:     #020f2b;   /* azul tinta oscuro: pie de página */
+  --c-navy-2:   #05306e;
+  --c-blue:     #022052;   /* azul UPCT (Pantone 2945 C) */
+  --c-blue-hi:  #0a3a85;
   --c-sky:      #75b2dd;   /* azul medio UPCT (Pantone 292 C) */
   --c-sky-soft: #b1e0fe;   /* reflejo claro del logo del equipo */
   --c-mist:     #f3f7fb;   /* fondo suave */
@@ -33,9 +33,9 @@
   --c-grey-700: #b4c6d9;   /* solo decoración: bordes, trazos */
 
   /* Transparencias del azul UPCT */
-  --c-blue-a08: rgb(0 84 160 / 0.06);
-  --c-blue-a14: rgb(0 84 160 / 0.12);
-  --c-blue-a35: rgb(0 84 160 / 0.30);
+  --c-blue-a08: rgb(2 32 82 / 0.06);
+  --c-blue-a14: rgb(2 32 82 / 0.12);
+  --c-blue-a35: rgb(2 32 82 / 0.30);
 
   /* ---------- Líneas ---------- */
   --c-line:        #d9e3ee;
@@ -124,7 +124,7 @@
 
   /* ---------- Zona del coche (visor) ---------- */
   --visor-ratio: 16 / 10;
-  --stage-bg: linear-gradient(160deg, #0b2a4d 0%, #0054a0 100%);
+  --stage-bg: linear-gradient(160deg, #04163a 0%, #022052 100%);
 }
 
 @media (max-width: 1080px) {

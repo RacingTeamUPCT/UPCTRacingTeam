@@ -88,7 +88,7 @@
       yellow: std(0xe7b30f, 0.42, 0.1),
       dark: std(0x0b0c0e, 0.85, 0),
       engine: std(0x4b5058, 0.45, 0.75),
-      blue: std(0x0054a0, 0.5, 0.3)
+      blue: std(0x022052, 0.5, 0.3)
     };
 
     /* ---------- Utilidades ---------- */

@@ -305,8 +305,8 @@ strong, b { font-weight: var(--fw-semibold); color: var(--text); }
 .btn:hover .icon { transform: translateX(3px); }
 .btn:active { transform: translateY(1px); }
 
-.btn--ghost { background: var(--c-ink); color: var(--c-pure-white); }
-.btn--ghost::before { background: var(--c-navy-2); }
+.btn--ghost { background: var(--c-sky); color: var(--c-ink); }
+.btn--ghost::before { background: var(--c-sky-soft); }
 
 .btn.btn--link {
   padding: 0.4rem 0;
@@ -752,7 +752,7 @@ a.footer__upct:hover, a.footer__upct:focus-visible { opacity: 1; }
   right: -12%;
   background:
     radial-gradient(ellipse 60% 55% at 42% 58%, rgb(117 178 221 / 0.55), transparent 70%),
-    linear-gradient(160deg, #0a3a68 0%, var(--c-blue) 62%, #0b6bbd 100%);
+    linear-gradient(160deg, #05306e 0%, var(--c-blue) 62%, #0a3a85 100%);
   transform: skewX(calc(var(--slash-angle) * -1));
   /* el azul se funde con el blanco de abajo: sin corte seco entre secciones */
   -webkit-mask-image: linear-gradient(to bottom, transparent 0, rgb(0 0 0 / 0.55) 7%, #000 20%, #000 46%, rgb(0 0 0 / 0.5) 74%, transparent 100%);
@@ -1745,7 +1745,7 @@ html.is-leaving main, html.is-leaving .site-footer { opacity: 0; transition: opa
   background: url("../assets/img/coche/con-el-equipo.jpg") center / cover no-repeat;
   -webkit-mask-image: linear-gradient(to right, transparent, #000 40%); mask-image: linear-gradient(to right, transparent, #000 40%);
 }
-.cifras::after { content: ""; position: absolute; inset: 0; background: linear-gradient(100deg, rgb(10 28 48 / 0.9) 25%, rgb(0 84 160 / 0.68)); }
+.cifras::after { content: ""; position: absolute; inset: 0; background: linear-gradient(100deg, rgb(4 18 46 / 0.9) 25%, rgb(2 32 82 / 0.68)); }
 @media (max-width: 760px) { .cifras { background-position: center; } .cifras::before { display: none; } }
 .cifras .container { position: relative; z-index: 1; padding-block: clamp(3rem, 7vw, 5.5rem); }
 .cifras__grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(9.5rem, 1fr)); gap: 2rem 1.5rem; margin: 0; padding: 0; list-style: none; }
@@ -1801,7 +1801,7 @@ html.is-leaving main, html.is-leaving .site-footer { opacity: 0; transition: opa
 .mapa { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 2rem clamp(2rem, 5vw, 4rem); align-items: center; }
 .mapa__img { position: relative; max-width: 100%; }
 .mapa__img img { display: block; width: 100%; height: auto; }
-.spot { position: absolute; width: 2rem; height: 2rem; margin: -1rem 0 0 -1rem; border-radius: 50%; background: var(--accent); color: var(--c-pure-white); font-weight: 700; font-size: 0.875rem; display: grid; place-items: center; box-shadow: 0 0 0 6px rgb(0 84 160 / 0.3); }
+.spot { position: absolute; width: 2rem; height: 2rem; margin: -1rem 0 0 -1rem; border-radius: 50%; background: var(--accent); color: var(--c-pure-white); font-weight: 700; font-size: 0.875rem; display: grid; place-items: center; box-shadow: 0 0 0 6px rgb(2 32 82 / 0.3); }
 .zonas { margin: 0; padding: 0; list-style: none; display: grid; gap: 0.9rem; }
 .zonas li { display: grid; grid-template-columns: 2rem minmax(0, 1fr); gap: 0.8rem; align-items: start; }
 .zonas b { display: grid; place-items: center; width: 2rem; height: 2rem; border-radius: 50%; background: var(--accent); color: var(--c-pure-white); font-size: 0.875rem; }
