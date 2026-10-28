@@ -26,7 +26,8 @@ UPCT.team = {
     miembros: [
       { nombre: "Nicole Lengrand", rol: "Team leader",               foto: "lider.svg", linkedin: "" },
       { nombre: "Sergio García",   rol: "Coordinador business plan", foto: "directiva-sergio-garcia.png", original: true, linkedin: "" },
-      { nombre: "Vasile Catalin",  rol: "Secretario",                foto: "motor-vasile-catalin.png",    original: true, linkedin: "" }   // también está en Motor
+      { nombre: "Vasile Catalin",  rol: "Secretario",                foto: "motor-vasile-catalin.png",    original: true, linkedin: "" },   // también está en Motor
+      { nombre: "Jorge Perea",     rol: "Coordinador de finanzas y administración", foto: "marketing-jorge-perea.png", original: true, linkedin: "https://www.linkedin.com/in/jorge-perea-l%C3%B3pez-59389b390/" }   // también está en Marketing
     ]
   },
 
