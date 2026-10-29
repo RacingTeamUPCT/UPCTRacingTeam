@@ -103,9 +103,10 @@ UPCT.team = {
       descripcion: "Llevar la potencia a las ruedas y detener el coche con precisión.",
       descripcionPropuesta: true,
       miembros: [
-        { nombre: "Sergio Múgica",  foto: "transmision-frenos-01.svg", linkedin: "" },   // coordinador
-        { nombre: "Antonio Arias",  foto: "transmision-frenos-02.svg", linkedin: "" },
-        { nombre: "Jose Francisco", foto: "transmision-frenos-03.svg", linkedin: "" }
+        { nombre: "Sergio Múgica",       foto: "transmision-frenos-sergio-mugica.png",       original: true, linkedin: "" },   // coordinador
+        { nombre: "Antonio Arias",       foto: "transmision-frenos-antonio-arias.png",       original: true, linkedin: "" },
+        { nombre: "Andrés Fernández",    foto: "transmision-frenos-andres-fernandez.png",    original: true, linkedin: "" },
+        { nombre: "Jose Carlos Sánchez", foto: "transmision-frenos-jose-carlos-sanchez.png", original: true, linkedin: "" }
       ]
     },
 
