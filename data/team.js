@@ -159,9 +159,9 @@ UPCT.team = {
         { nombre: "Francisco Peñaranda", foto: "cockpit-03.jpg", original: true, linkedin: "" },
         { nombre: "Laura Martínez",    foto: "cockpit-04.jpg", original: true, linkedin: "" },
         { nombre: "Jorge Fernández",    foto: "cockpit-05.svg", linkedin: "" },   // sin foto todavía
-        { nombre: "María Ortín",        foto: "cockpit-07.svg", linkedin: "" },
-        { nombre: "Aitor Martín",       foto: "cockpit-08.svg", linkedin: "" },
-        { nombre: "Izan Roselló",       foto: "cockpit-09.svg", linkedin: "" }
+        { nombre: "María Ortín",        foto: "cockpit-maria-ortin.png",   original: true, linkedin: "" },
+        { nombre: "Aitor Martín",       foto: "cockpit-aitor-martin.png",  original: true, linkedin: "" },
+        { nombre: "Izan Roselló",       foto: "cockpit-izan-rosello.png",  original: true, linkedin: "" }
       ]
     },
 
