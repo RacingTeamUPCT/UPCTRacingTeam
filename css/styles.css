@@ -1020,7 +1020,7 @@ a.member__photo:focus-visible::after { opacity: 1; }
 .member__in {
   position: absolute;
   z-index: 3;
-  right: 0.6rem;
+  left: 0.6rem;                  /* a la izquierda: el logo de la camisa queda a la derecha */
   bottom: 0.6rem;
   display: grid;
   place-items: center;
