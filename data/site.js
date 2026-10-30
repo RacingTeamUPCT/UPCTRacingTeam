@@ -57,7 +57,7 @@ UPCT.site = {
   /* Menú principal (el orden es el que aparece en la web). El "id" debe coincidir
      con el atributo current="" de <site-header> en cada página. */
   menu: [
-    { id: "inicio",         etiqueta: "Inicio",         href: "index.html" },
+    { id: "inicio",         etiqueta: "Inicio",         href: "./" },
     { id: "quienes-somos",  etiqueta: "Nosotros",       href: "quienes-somos.html" },
     { id: "equipo",         etiqueta: "Equipo",         href: "equipo.html" },
     { id: "competicion",    etiqueta: "Competición",    href: "competicion.html" },

@@ -109,7 +109,7 @@
         '<a class="skip-link" href="#contenido">Saltar al contenido</a>' +
         '<header class="site-header">' +
           '<div class="site-header__inner">' +
-            '<a class="brand" href="index.html" aria-label="' + esc(name) + ': ir a Inicio">' + brandMarkup() + '</a>' +
+            '<a class="brand" href="./" aria-label="' + esc(name) + ': ir a Inicio">' + brandMarkup() + '</a>' +
             '<button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Abrir menú">' +
               '<span class="nav-toggle__bar"></span><span class="nav-toggle__bar"></span>' +
             '</button>' +
@@ -191,7 +191,7 @@
   function footerMarks() {
     var t = site.logoEquipoPie;
     var team = (t && t.src)
-      ? '<a class="footer__team" href="index.html" aria-label="' + esc(t.alt || site.nombre || '') + ': ir a Inicio">' +
+      ? '<a class="footer__team" href="./" aria-label="' + esc(t.alt || site.nombre || '') + ': ir a Inicio">' +
           '<img src="' + esc(t.src) + '" alt="' + esc(t.alt || site.nombre || '') + '"' +
           (t.ancho && t.alto ? ' width="' + esc(t.ancho) + '" height="' + esc(t.alto) + '"' : '') + ' loading="lazy" decoding="async"></a>'
       : '';
