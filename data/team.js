@@ -136,10 +136,10 @@ UPCT.team = {
       descripcion: "Suspensión, dirección y neumáticos: el comportamiento del coche en pista.",
       descripcionPropuesta: true,
       miembros: [
-        { nombre: "Alejandro Montoya", foto: "dinamica-01.svg", linkedin: "" },   // coordinador
-        { nombre: "Rafael Ramírez",    foto: "dinamica-02.svg", linkedin: "" },
-        { nombre: "Sergio Alcaraz",    foto: "dinamica-03.svg", linkedin: "" },
-        { nombre: "Sergio de Haro",    foto: "dinamica-04.svg", linkedin: "" },
+        { nombre: "Alejandro Montoya", foto: "dinamica-alejandro-montoya.png", original: true, linkedin: "" },   // coordinador
+        { nombre: "Rafael Ramírez",    foto: "dinamica-rafael-ramirez.png", original: true, linkedin: "" },
+        { nombre: "Sergio Alcaraz",    foto: "dinamica-sergio-alcaraz.png", original: true, linkedin: "" },
+        { nombre: "Sergio de Haro",    foto: "dinamica-sergio-de-haro.png", original: true, linkedin: "" },
         { nombre: "Sofia Orenes",      foto: "dinamica-05.svg", linkedin: "" },
         { nombre: "Salsabi Raissouni", foto: "dinamica-06.svg", linkedin: "" },
         { nombre: "Vicente Morales",   foto: "dinamica-07.svg", linkedin: "" },
