@@ -57,7 +57,8 @@ UPCT.team = {
       miembros: [
         { nombre: "Pablo Alba",        foto: "motor-pablo-alba.png",        original: true, linkedin: "" },   // coordinador
         { nombre: "Alejandro Sánchez", foto: "motor-alejandro-sanchez.png", original: true, linkedin: "" },
-        { nombre: "Vasile Catalin",    foto: "motor-vasile-catalin.png",    original: true, linkedin: "" }
+        { nombre: "Vasile Catalin",    foto: "motor-vasile-catalin.png",    original: true, linkedin: "" },
+        { nombre: "Gerardo Martínez",  foto: "motor-gerardo-martinez.png",  original: true, linkedin: "" }
       ]
     },
 
@@ -106,7 +107,8 @@ UPCT.team = {
         { nombre: "Sergio Múgica",       foto: "transmision-frenos-sergio-mugica.png",       original: true, linkedin: "https://www.linkedin.com/in/sergio-m%C3%BAgica-v%C3%A9lez-4a56b93a5/" },   // coordinador
         { nombre: "Antonio Arias",       foto: "transmision-frenos-antonio-arias.png",       original: true, linkedin: "" },
         { nombre: "Andrés Fernández",    foto: "transmision-frenos-andres-fernandez.png",    original: true, linkedin: "" },
-        { nombre: "Jose Carlos Sánchez", foto: "transmision-frenos-jose-carlos-sanchez.png", original: true, linkedin: "" }
+        { nombre: "Jose Carlos Sánchez", foto: "transmision-frenos-jose-carlos-sanchez.png", original: true, linkedin: "" },
+        { nombre: "David Saldaña",        foto: "transmision-frenos-david-saldana.png",        original: true, linkedin: "" }
       ]
     },
 
@@ -123,10 +125,10 @@ UPCT.team = {
         { nombre: "Izan González", foto: "electrica-izan.png",         original: true, linkedin: "" },
         { nombre: "Alejandro Hita", foto: "electrica-alejandro.png",    original: true, linkedin: "" },
         { nombre: "Pedro Lucas", foto: "electrica-pedro.png",        original: true, linkedin: "" },
-        { nombre: "Cloe Fernández", foto: "electrica-cloe.png",         original: true, linkedin: "" },
         { nombre: "Álvaro Mulero", foto: "electrica-alvaro.png",       original: true, linkedin: "" },
         { nombre: "Irene Calatrava", foto: "electrica-irene.png",        original: true, linkedin: "" },
-        { nombre: "Jesús Buitrago", foto: "electrica-jesus.png",        original: true, linkedin: "" }
+        { nombre: "Jesús Buitrago", foto: "electrica-jesus.png",        original: true, linkedin: "" },
+        { nombre: "Nahuel Remón",  foto: "electrica-nahuel-remon.png", original: true, linkedin: "" }
       ]
     },
 
@@ -140,10 +142,10 @@ UPCT.team = {
         { nombre: "Rafael Ramírez",    foto: "dinamica-rafael-ramirez.png", original: true, linkedin: "" },
         { nombre: "Sergio Alcaraz",    foto: "dinamica-sergio-alcaraz.png", original: true, linkedin: "" },
         { nombre: "Sergio de Haro",    foto: "dinamica-sergio-de-haro.png", original: true, linkedin: "" },
-        { nombre: "Sofia Orenes",      foto: "dinamica-05.svg", linkedin: "" },
+        { nombre: "Sofía Orenes",      foto: "dinamica-sofia-orenes.png", original: true, linkedin: "" },
         { nombre: "Salsabi Raissouni", foto: "dinamica-06.svg", linkedin: "" },
         { nombre: "Vicente Morales",   foto: "dinamica-07.svg", linkedin: "" },
-        { nombre: "Mario Serrano",     foto: "dinamica-08.svg", linkedin: "" },
+        { nombre: "Mario Serrano",     foto: "dinamica-mario-serrano.png", original: true, linkedin: "" },
         { nombre: "Jaime Jover",       foto: "dinamica-09.svg", linkedin: "" }
       ]
     },
