@@ -35,19 +35,10 @@
   }
   var anyLinkedin = false;
 
-  /* ---------- Avatar de emergencia (SVG en línea) ---------- */
-  function initials(name) {
-    var parts = String(name || '').trim().split(/\s+/).filter(Boolean);
-    var letters = (parts[0] ? parts[0].charAt(0) : '') + (parts[1] ? parts[1].charAt(0) : '');
-    return (letters || '?').toUpperCase();
-  }
-  function fallbackAvatar(name) {
-    var svg = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500"><rect width="400" height="500" fill="#d3e5f5"/>' +
-      '<line x1="110" y1="520" x2="306" y2="-20" stroke="#022052" stroke-width="1.5"/>' +
-      '<text x="200" y="278" text-anchor="middle" font-family="Arial Narrow,Arial,sans-serif" font-size="170" font-weight="700" fill="#04122e">' +
-      esc(initials(name)) + '</text></svg>';
-    return 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(svg);
-  }
+  /* ---------- Silueta para quien aún no tiene foto ----------
+     Si "foto" apunta a un .svg (avatar provisional) o el archivo falla, se muestra assets/img/team/silueta.svg:
+     una silueta suave sobre el mismo fondo claro que las fotos reales. */
+  var silhouette = dir + 'silueta.svg';
 
   /* ---------- Una persona ---------- */
   function member(person, dept, i, role) {
@@ -55,11 +46,13 @@
     var hasLink = !!person.linkedin;
     if (hasLink) { anyLinkedin = true; }
 
-    var img = '<img src="' + esc(dir + person.foto) + '" alt="Retrato de ' + esc(name) + ', ' + esc(dept.nombre) + '"' +
-      ' width="' + (person.original ? '1086' : '400') + '" height="' + (person.original ? '1448' : '500') + '" loading="lazy" decoding="async" data-name="' + esc(name) + '">';
+    var noPhoto = !person.foto || /\.svg$/i.test(person.foto);
+    var asOriginal = person.original || noPhoto;
+    var img = '<img src="' + esc(noPhoto ? silhouette : dir + person.foto) + '" alt="' + (noPhoto ? 'Foto pendiente de ' : 'Retrato de ') + esc(name) + ', ' + esc(dept.nombre) + '"' +
+      ' width="' + (asOriginal ? '1086' : '400') + '" height="' + (asOriginal ? '1448' : '500') + '" loading="lazy" decoding="async" data-name="' + esc(name) + '">';
 
     /* original: true → la foto se muestra tal cual (proporción propia, sin recorte ni filtro de color) */
-    var cls = 'member__photo' + (person.original ? ' member__photo--original' : '');
+    var cls = 'member__photo' + (asOriginal ? ' member__photo--original' : '');
     var media = hasLink
       ? '<a class="' + cls + '" href="' + esc(person.linkedin) + '" target="_blank" rel="noopener noreferrer"' +
           ' aria-label="' + esc(name) + ': abrir perfil de LinkedIn (se abre en una pestaña nueva)">' +
@@ -128,7 +121,7 @@
     var img = e.target;
     if (img && img.tagName === 'IMG' && !img.getAttribute('data-fallback')) {
       img.setAttribute('data-fallback', '1');
-      img.src = fallbackAvatar(img.getAttribute('data-name'));
+      img.src = silhouette;
     }
   }, true);
 

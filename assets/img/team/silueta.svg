@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1086 1448" width="1086" height="1448" role="img" aria-label="Foto pendiente">
+  <defs>
+    <linearGradient id="s" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#e4e7ec"/>
+      <stop offset="1" stop-color="#d8dce2"/>
+    </linearGradient>
+  </defs>
+  <rect width="1086" height="1448" fill="#efefef"/>
+  <!-- silueta continua: cabeza, cuello y hombros -->
+  <path fill="url(#s)" d="M543 300
+    C662 300 738 392 738 512
+    C738 612 702 700 652 746
+    C640 758 636 772 636 792
+    L636 832
+    C636 872 700 892 802 926
+    C942 974 1046 1090 1046 1448
+    L40 1448
+    C40 1090 144 974 284 926
+    C386 892 450 872 450 832
+    L450 792
+    C450 772 446 758 434 746
+    C384 700 348 612 348 512
+    C348 392 424 300 543 300 Z"/>
+</svg>
