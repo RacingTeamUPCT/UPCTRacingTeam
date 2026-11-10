@@ -24,7 +24,7 @@ UPCT.team = {
   directiva: {
     titulo: "Directiva",
     miembros: [
-      { nombre: "Nicole Lengrand", rol: "Team leader",               foto: "lider.svg", linkedin: "" },
+      { nombre: "Nicole Lengrand", rol: "Team leader",               foto: "directiva-nicole-lengrand.png", original: true, linkedin: "" },
       { nombre: "Sergio García",   rol: "Coordinador business plan", foto: "directiva-sergio-garcia.png", original: true, linkedin: "" },
       { nombre: "Vasile Catalin",  rol: "Secretario",                foto: "motor-vasile-catalin.png",    original: true, linkedin: "" },   // también está en Motor
       { nombre: "Jorge Perea",     rol: "Coordinador de finanzas y administración", foto: "marketing-jorge-perea.png", original: true, linkedin: "https://www.linkedin.com/in/jorge-perea-l%C3%B3pez-59389b390/" }   // también está en Marketing
@@ -44,8 +44,7 @@ UPCT.team = {
         { nombre: "Jorge Perea",      foto: "marketing-jorge-perea.png",     original: true, linkedin: "https://www.linkedin.com/in/jorge-perea-l%C3%B3pez-59389b390/" },
         { nombre: "Álvaro Prieto",    foto: "marketing-alvaro-prieto.png",   original: true, linkedin: "" },
         { nombre: "Joaquín Párraga",  foto: "marketing-joaquin-parraga.png", original: true, linkedin: "" },
-        { nombre: "Aitor José Milanes", foto: "marketing-06.svg", linkedin: "" },
-        { nombre: "Francisco Castro",   foto: "marketing-07.svg", linkedin: "" }
+        { nombre: "Aitor José Milanes", foto: "marketing-aitor-milanes.png", original: true, linkedin: "" }
       ]
     },
 
@@ -58,7 +57,8 @@ UPCT.team = {
         { nombre: "Pablo Alba",        foto: "motor-pablo-alba.png",        original: true, linkedin: "" },   // coordinador
         { nombre: "Alejandro Sánchez", foto: "motor-alejandro-sanchez.png", original: true, linkedin: "" },
         { nombre: "Vasile Catalin",    foto: "motor-vasile-catalin.png",    original: true, linkedin: "" },
-        { nombre: "Gerardo Martínez",  foto: "motor-gerardo-martinez.png",  original: true, linkedin: "" }
+        { nombre: "Gerardo Martínez",  foto: "motor-gerardo-martinez.png",  original: true, linkedin: "" },
+        { nombre: "Paco Castro",       foto: "motor-paco-castro.png",       original: true, linkedin: "" }
       ]
     },
 
@@ -174,7 +174,7 @@ UPCT.team = {
       descripcionPropuesta: true,
       miembros: [
         /* I+D no tiene coordinador: coordinador: false quita la etiqueta al primer miembro */
-        { nombre: "Ginés Cerón",       foto: "id-02.svg", coordinador: false, linkedin: "" },   // sin foto todavía
+        { nombre: "Ginés Cerón",       foto: "id-gines-ceron.png", original: true, coordinador: false, linkedin: "" },
         { nombre: "Gonzalo Sánchez",   foto: "id-03.svg", linkedin: "" }
       ]
     }
