@@ -144,7 +144,7 @@ UPCT.team = {
         { nombre: "Sergio de Haro",    foto: "dinamica-sergio-de-haro.png", original: true, linkedin: "" },
         { nombre: "Sofía Orenes",      foto: "dinamica-sofia-orenes.png", original: true, linkedin: "" },
         { nombre: "Salsabi Raissouni", foto: "dinamica-06.svg", linkedin: "" },
-        { nombre: "Vicente Morales",   foto: "dinamica-07.svg", linkedin: "" },
+        { nombre: "Vicente Morales",   foto: "dinamica-vicente-morales.png", original: true, linkedin: "" },
         { nombre: "Mario Serrano",     foto: "dinamica-mario-serrano.png", original: true, linkedin: "" },
         { nombre: "Jaime Jover",       foto: "dinamica-09.svg", linkedin: "" }
       ]
