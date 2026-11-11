@@ -2,7 +2,8 @@
 import http from 'node:http';
 import fs from 'node:fs';
 import path from 'node:path';
-import { DIST } from './config.mjs';
+import { DIST as BUILT } from './config.mjs';
+const DIST = process.env.SERVE_DIR ? path.resolve(process.env.SERVE_DIR) : BUILT;   // SERVE_DIR: servir otra carpeta (p. ej. para comparar)
 
 const PORT = Number(process.env.PORT || process.argv[2] || 5173);
 const TYPES = {
