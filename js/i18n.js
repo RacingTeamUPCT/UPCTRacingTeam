@@ -19,12 +19,47 @@
   function readStored() { try { return window.localStorage.getItem(KEY); } catch (e) { return null; } }
   function store(v) { try { window.localStorage.setItem(KEY, v); } catch (e) { /* sin almacenamiento: se usa solo en esta página */ } }
 
+  /* Páginas generadas por el build (npm run build): el idioma lo decide la dirección (/en/... = inglés) y cada idioma
+     es una página propia, con su texto ya escrito (así Google ve el inglés). El selector de idioma navega entre ellas.
+     Sin build (servidor de desarrollo sobre los archivos de origen) se sigue traduciendo en el sitio, como siempre. */
+  var isBuilt = !!document.querySelector('meta[name="upct-static"]');
+
   var lang = 'es';
-  try {
-    var q = new URLSearchParams(window.location.search).get('lang');
-    if (q === 'en' || q === 'es') { lang = q; store(q); }
-    else if (readStored() === 'en') { lang = 'en'; }
-  } catch (e) { if (readStored() === 'en') { lang = 'en'; } }
+  if (isBuilt) {
+    lang = /^\/en(\/|$)/.test(window.location.pathname) ? 'en' : 'es';
+  } else {
+    try {
+      var q = new URLSearchParams(window.location.search).get('lang');
+      if (q === 'en' || q === 'es') { lang = q; store(q); }
+      else if (readStored() === 'en') { lang = 'en'; }
+    } catch (e) { if (readStored() === 'en') { lang = 'en'; } }
+  }
+
+  /* Dirección de esta misma página en el otro idioma: /equipo.html ↔ /en/equipo.html, / ↔ /en/ */
+  function urlFor(next) {
+    var es = window.location.pathname.replace(/^\/en(?=\/|$)/, '') || '/';
+    var path = next === 'en' ? '/en' + es : es;
+    return path + window.location.search + window.location.hash;
+  }
+
+  /* En inglés, los enlaces internos de la web van a la versión inglesa: «equipo.html» → «en/equipo.html», «./» → «en/» */
+  function enHref(href) {
+    if (!href || href.charAt(0) === '#' || href.charAt(0) === '/' || /^[a-z][a-z0-9+.-]*:/i.test(href)) { return null; }
+    var m = /^([^?#]*)([?#][\s\S]*)?$/.exec(href), path = m[1], rest = m[2] || '';
+    if (!path || /^assets\//.test(path) || /^en\//.test(path)) { return null; }
+    if (path === './') { return 'en/' + rest; }
+    if (/\.html$/.test(path)) { return 'en/' + path + rest; }
+    return null;
+  }
+  function localizeLinks(el) {
+    if (!isBuilt || lang !== 'en' || !el.querySelectorAll) { return; }
+    var links = Array.prototype.slice.call(el.querySelectorAll('a[href]'));
+    if (el.matches && el.matches('a[href]')) { links.unshift(el); }
+    links.forEach(function (a) {
+      var next = enHref(a.getAttribute('href'));
+      if (next) { a.setAttribute('href', next); }
+    });
+  }
 
   root.setAttribute('lang', lang);
   if (lang === 'en') {                       // evita ver un instante la página en español
@@ -88,7 +123,9 @@
   function translateTree(node) {
     if (!node) { return; }
     if (node.nodeType === 3) { translateText(node); return; }
-    if (node.nodeType !== 1 || SKIP[node.nodeName] || node.hasAttribute('data-no-i18n')) { return; }
+    if (node.nodeType !== 1) { return; }
+    localizeLinks(node);
+    if (SKIP[node.nodeName] || node.hasAttribute('data-no-i18n')) { return; }
 
     /* 1) párrafos con negritas o enlaces dentro: se traducen enteros */
     var rich = (UPCT.i18nEN && UPCT.i18nEN.rich) || {};
@@ -205,6 +242,7 @@
     setLang: function (next) {
       if (next !== 'es' && next !== 'en') { return; }
       if (next === lang) { return; }
+      if (isBuilt) { window.location.href = urlFor(next); return; }   /* cada idioma es una página propia */
       lang = next;
       store(next);
       apply();

@@ -1,0 +1,20 @@
+{
+  "name": "upct-racing-team-web",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Web del UPCT Racing Team. Las paginas se generan en el build (npm run build) a partir de los mismos scripts y datos.",
+  "type": "module",
+  "scripts": {
+    "build": "node build/build.mjs",
+    "start": "node build/serve.mjs",
+    "dev": "node build/build.mjs && node build/serve.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "devDependencies": {
+    "image-size": "^2.1.0",
+    "jsdom": "^26.1.0",
+    "yaml": "^2.9.1"
+  }
+}

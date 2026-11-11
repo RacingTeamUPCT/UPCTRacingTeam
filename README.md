@@ -1,7 +1,8 @@
 # UPCT Racing Team — Web del equipo
 
 Web profesional del equipo de Formula Student de la Universidad Politécnica de Cartagena.
-Siete páginas independientes, **HTML + CSS + JavaScript sin frameworks ni paso de compilación**.
+Siete páginas, **HTML + CSS + JavaScript sin frameworks**. Un script de build (`npm run build`) pre-genera cada página (con su versión en inglés
+y cada noticia) ejecutando los mismos scripts, para que Google y quien no tenga JavaScript vean el contenido. El aspecto no cambia.
 
 > **Estado:** web completa con el diseño «Duotono» (blanco + azul UPCT) y el coche en 3D en Inicio.
 > **Coche 3D:** se gira con el ratón desde todos los ángulos. Es el **CAD real de SolidWorks** simplificado (`assets/models/coche.glb`); la réplica a ojo
@@ -10,8 +11,26 @@ Siete páginas independientes, **HTML + CSS + JavaScript sin frameworks ni paso 
 
 ---
 
-## 1. Cómo arrancarla
+## 1. Cómo arrancarla y publicarla
 
+### Con build (recomendado: es lo que se publica)
+Hace falta [Node.js](https://nodejs.org) (versión LTS). En una terminal, en esta carpeta:
+
+```bash
+npm install        # solo la primera vez
+npm run dev        # genera dist/ y lo sirve en http://localhost:5173
+npm run build      # solo genera dist/ (lo que Vercel publica)
+```
+
+El build tarda unos 10 segundos y hace esto: lee las noticias de `content/blog/` → `data/blog.js`; mide el dossier PDF → `data/dossier.js`;
+lee las fotos de `assets/img/garaje/` → `data/garaje-fotos.js`; copia css/js/data/assets a `dist/`; genera cada página en español (`/`) y en
+inglés (`/en/`), una página por noticia (`/blog/<id>.html`) y `sitemap.xml`. Al final imprime un informe de imágenes (todas deben llevar `alt`).
+
+**En Vercel** el repositorio ya trae `vercel.json` (instala, ejecuta `npm run build` y publica `dist/`): cada rama genera una *preview* y `main`
+publica en producción. `dist/` y `node_modules/` no se suben (están en `.gitignore`).
+
+### Sin build (solo para editar rápido)
+Sirve los archivos de origen tal cual; se ve casi igual, pero **no existen** las páginas de noticias (`/blog/…`), las de `/en/` ni el `sitemap.xml`.
 Abre una terminal en esta carpeta y ejecuta **una** de estas opciones; después entra en <http://localhost:8000>.
 
 ```bash
@@ -33,7 +52,12 @@ no instala nada y abre el navegador en <http://localhost:8000>. Para pararlo, `C
 ## 2. Estructura
 
 ```
-index.html · quienes-somos.html · equipo.html · competicion.html · garaje.html · patrocinadores.html · contacto.html
+index.html · quienes-somos.html · equipo.html · competicion.html · garaje.html · patrocinadores.html · contacto.html   ← páginas de origen
+noticia.html    ← plantilla de la página de una noticia (el build genera blog/<id>.html con ella)
+404.html        ← página de error («Te has salido de pista»)
+package.json · vercel.json     ← build y publicación en Vercel
+build/          ← script de build (build.mjs, prerender.mjs, blog.mjs, garaje.mjs, sitemap.mjs, serve.mjs)
+content/blog/   ← una noticia = un archivo .md (ver content/blog/README.md)
 
 css/
   variables.css   ← TODOS los colores, tipografías y espaciados clave (un único archivo)
@@ -44,10 +68,13 @@ js/
   visor.js        ← visor 3D del coche de Inicio (Three.js desde CDN): girar, acercar; respaldo con fotos si no hay WebGL
   coche3d.js      ← réplica 3D del coche construida con geometría de Three.js a partir de las fotos (logos de patrocinadores incluidos)
   home.js · quienes-somos.js · equipo.js · garaje.js · patrocinadores.js · contacto.js · blog.js   ← un archivo por página
-  posts.js        ← utilidades del blog compartidas por Inicio y Blog (tarjetas, fechas)
+  posts.js        ← utilidades del blog compartidas por Inicio, Blog y la página de cada noticia (tarjetas, fechas, artículo)
+  noticia.js      ← pinta la noticia de blog/<id>.html
 data/             ← lo único que hay que tocar para cambiar contenido
   site.js                 nombre, logos, menú, misión, valores, contacto (+ formulario), redes, Instagram, ubicaciones
-  blog.js                 noticias del blog (hoy vacío: la página muestra «Aún no hay noticias» y la portada no enseña el bloque)
+  blog.js                 GENERADO por el build desde content/blog/*.md (no se edita a mano)
+  dossier.js              ruta y tamaño del dossier de patrocinio en PDF (el tamaño lo actualiza el build)
+  garaje-fotos.js         GENERADO por el build desde assets/img/garaje/<departamento>/
   team.js                 9 departamentos y sus 47 integrantes (foto y LinkedIn)
   departments-garage.js   los 9 departamentos del Garaje (+ campo «zonaCoche» para la fase 2)
   sponsors.js             patrocinadores (nombre, URL, logo, nivel): alimenta la página Patrocinadores y el pie
@@ -110,10 +137,14 @@ escribe «Coordinador» bajo su nombre.
   «widget de Instagram» (Behold, Elfsight o LightWidget): se crea la cuenta en el servicio, se conecta Instagram y se pega aquí el
   identificador. Mientras esté vacío se ve una cuadrícula de fotos del equipo que lleva al perfil. En la web de pruebas publicada
   como Artifact no funciona (bloquea servicios externos); sí en un hosting normal.
-* **Formulario de contacto que envía de verdad:** `contacto.formulario` (dirección de un servicio como Formspree). Mientras esté
-  vacío, el formulario abre el correo del visitante (mailto) como antes. Con la dirección, envía el mensaje al correo del equipo y
-  muestra «Mensaje enviado».
-* **Blog:** añade cada noticia en `data/blog.js` (la plantilla está en el propio archivo).
+* **Formulario de contacto:** tiene dos botones. «Enviar mensaje» lo manda desde la web al correo del equipo (con **Web3Forms**) y «Abrir en mi
+  app de correo» abre el correo del visitante (mailto). Para activar el envío directo hay que pegar la clave de Web3Forms en
+  `contacto.web3formsKey` (los pasos para crearla están en el propio `data/site.js`). Mientras esté vacía, «Enviar mensaje» avisa de que el
+  envío directo no está activado. Lleva un campo trampa invisible contra el spam y el asunto se puede rellenar con `contacto.html?asunto=…`.
+* **Dossier de patrocinio:** el PDF está en `assets/docs/dossier-patrocinio-upct-racing-team.pdf` (para cambiarlo, sustituye el archivo con el
+  mismo nombre y vuelve a hacer el build: el tamaño que se muestra se actualiza solo). Se ofrece en Patrocinadores y en la portada.
+* **Blog:** una noticia es un archivo en `content/blog/` (mira `content/blog/README.md`); el build crea su página, el listado, la «Última noticia»
+  de la portada y el sitemap.
 * **Misión y valores:** `mision` y `valores`. Los textos con `propuesta: false` los ha escrito el equipo; el resto son propuesta editable.
 * **Logos:** `logo` (cabecera, versión en color sobre transparente en `assets/img/logo/`) y `logoUniversidad` (emblema de la UPCT en el pie,
   enlazado a upct.es). Para cambiarlos, guarda el archivo nuevo y actualiza `src`, `ancho` y `alto`.
@@ -137,11 +168,20 @@ Su texto está directamente en `quienes-somos.html` y `competicion.html`.
 Para sustituirlas: guarda la imagen y cambia el `src` (y el `alt`) de la etiqueta `<img>` correspondiente en el HTML.
 
 ### Idiomas (ES / EN) → `data/i18n-en.js` + `js/i18n.js`
-El menú tiene un desplegable ES / EN con banderas. Español por defecto; al elegir EN toda la web se traduce y al volver a ES se
-restaura el texto original. La elección se recuerda en el navegador (y se puede forzar con `?lang=en`).
+El menú tiene un desplegable ES / EN con banderas. El español está en la raíz (`/equipo.html`) y el inglés son páginas propias en `/en/`
+(`/en/equipo.html`), generadas en el build con las traducciones de `data/i18n-en.js`, con etiquetas `hreflang` y su propio `canonical`.
+El selector navega entre las dos versiones. (Sin build, en el servidor de desarrollo, la web se traduce en el sitio, como antes; también con `?lang=en`.)
 Las traducciones están en `data/i18n-en.js`: cada texto español exacto → su traducción (`dict`), párrafos con negritas (`rich`) y
 marcadores `[PENDIENTE: …]` (`pend`). **Si cambias un texto en español, actualiza también su clave ahí**; un texto sin traducción se
 queda en español. Las palabras iguales en los dos idiomas (Formula Student, Team, Marketing…) se dejan tal cual.
+
+### Fotos de cada departamento en el Garaje → `assets/img/garaje/<id-del-departamento>/`
+Para enseñar fotos de cómo trabaja un departamento basta con **añadir archivos** (`.jpg`, `.png`, `.webp`) a su carpeta, p. ej.
+`assets/img/garaje/motor/montaje-del-motor.jpg`; los ids son los de `data/departments-garage.js` (`marketing`, `motor`, `aerodinamica`, `chasis`,
+`transmision-frenos`, `electrica`, `dinamica`, `cockpit`, `id`). El build las detecta, mide y las enseña en el desplegable de ese departamento,
+por orden alfabético del nombre del archivo. El texto alternativo sale del nombre del archivo (`montaje-del-motor.jpg` → «Montaje del motor»);
+para uno propio (y su versión en inglés) crea `alt.json` en la carpeta: `{ "montaje-del-motor.jpg": { "es": "…", "en": "…" } }`.
+Mientras una carpeta esté vacía no cambia nada en la web.
 
 ### Fotos del coche → `assets/img/coche/` + `data/coche.js`
 Las 6 fotos actuales (frontal, delantera izquierda, lateral izquierdo, con el equipo, trasera derecha y lateral derecho) están
@@ -201,8 +241,8 @@ Diseño «Duotono»: blanco y azul oficial de la UPCT, con un panel azul oblicuo
 | Qué falta | Dónde se rellena |
 |---|---|
 | Identificador del widget de Instagram (para que la portada se actualice sola) | `data/site.js` → `instagram.widget` |
-| Dirección del servicio de formularios (para que el formulario envíe de verdad) | `data/site.js` → `contacto.formulario` |
-| Primera noticia del blog | `data/blog.js` |
+| Clave de Web3Forms (para que «Enviar mensaje» envíe de verdad) | `data/site.js` → `contacto.web3formsKey` |
+| Nuevas noticias del blog | `content/blog/*.md` |
 | Dominio definitivo (la imagen al compartir el enlace necesita URL absoluta) | `og:image` en cada `.html` |
 | Ubicaciones de Contacto: UPCT y taller (edificio ELDI, Calle del Ángel s/n; falta confirmar planta/número) | `data/site.js` → `ubicaciones` |
 | Historia del equipo | `quienes-somos.html` |

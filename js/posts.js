@@ -72,10 +72,30 @@
     }).join('') + '</ul>';
   };
 
-  /* Tarjeta de una noticia: título, vídeo (o foto), comienzo del texto y «Leer más» (lleva a blog.html#id) */
+  /* Dirección de una noticia: cada una tiene su propia página, blog/<id>.html */
+  UPCT.postUrl = function (id) { return 'blog/' + id + '.html'; };
+
+  /* Noticia abierta (la página blog/<id>.html): vídeo o fotos arriba, luego fecha, título y cuerpo */
+  UPCT.postArticle = function (p) {
+    p = UPCT.loc(p);
+    var cover = UPCT.postCover(p);
+    var media = p.video
+      ? '<figure>' + UPCT.postVideo(p) + '</figure>'
+      : (p.fotos && p.fotos.length ? UPCT.postGallery(p) : (cover ? '<figure><img src="' + esc(cover.src) + '" alt="' + esc(cover.alt) + '" decoding="async"></figure>' : ''));
+    return '<div class="blog-articulo">' +
+      '<p><a class="link-line" href="blog.html">Volver al blog</a></p>' +
+      media +
+      '<div class="post__meta"><span class="post__cat">' + esc(p.categoria || '') + '</span><span>' + esc(UPCT.formatDate(p.fecha)) + '</span>' +
+        (p.autor ? '<span>' + esc(p.autor) + '</span>' : '') + '</div>' +
+      '<h1>' + esc(p.titulo) + '</h1>' +
+      (p.cuerpo || []).map(function (t) { return '<p>' + UPCT.richText(t) + '</p>'; }).join('') +
+    '</div>';
+  };
+
+  /* Tarjeta de una noticia: título, vídeo (o foto), comienzo del texto y «Leer más» (lleva a su página) */
   UPCT.postCard = function (p, wide) {
     p = UPCT.loc(p);
-    var href = 'blog.html#' + esc(p.id);
+    var href = esc(UPCT.postUrl(p.id));
     var cover = UPCT.postCover(p);
     var media = p.video
       ? UPCT.postVideo(p)

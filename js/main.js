@@ -173,6 +173,21 @@
     el.setAttribute('aria-hidden', 'true');
   });
 
+  /* ---------- 4b. Enlaces a un ancla de esta misma página (#contenido, #chasis…) ----------
+     Las páginas dentro de /en/ y /blog/ llevan <base href="/"> (para que sus archivos se encuentren) y, con él, un
+     «#ancla» apuntaría a la portada. Se resuelve aquí: solo se cambia el «#» de la dirección actual. */
+  d.addEventListener('click', function (e) {
+    if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) { return; }
+    var a = e.target.closest && e.target.closest('a[href^="#"]');
+    if (!a || !d.querySelector('base[href]')) { return; }
+    e.preventDefault();
+    var id = a.getAttribute('href').slice(1);
+    if (!id) { window.scrollTo(0, 0); return; }
+    window.location.hash = id;
+    var target = d.getElementById(id);
+    if (target && target.hasAttribute('tabindex')) { target.focus({ preventScroll: true }); }
+  });
+
   /* ---------- 5. Transición entre páginas (fundido breve) ---------- */
   var prefetched = {};
 

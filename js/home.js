@@ -40,7 +40,8 @@
       return '<li><img src="' + esc(s.logo) + '" alt="' + esc(s.nombre) + '"' +
         (s.ancho && s.alto ? ' width="' + esc(s.ancho) + '" height="' + esc(s.alto) + '"' : '') + ' loading="lazy" decoding="async"></li>';
     }).join('');
-    track.innerHTML = items + items.replace(/ alt="[^"]*"/g, ' alt="" aria-hidden="true"');
+    /* la segunda copia (para el movimiento continuo) conserva el nombre en «alt» y se oculta a los lectores de pantalla */
+    track.innerHTML = items + items.replace(/ alt="([^"]*)"/g, ' alt="$1" aria-hidden="true"');
     $('cinta').hidden = false;
   }
 
@@ -175,16 +176,16 @@
     if (!instagramWidget(feed, insta.widget || {})) {
       /* Sin widget: fotos del equipo que llevan al perfil (no se presentan como publicaciones concretas) */
       var fotos = [
-        ['assets/img/coche/frontal.jpg', 699, 454],
-        ['assets/img/competicion/pista-14.jpg', 1022, 689],
-        ['assets/img/competicion/pista-17.jpg', 766, 1018],
-        ['assets/img/coche/con-el-equipo.jpg', 699, 454],
-        ['assets/img/competicion/pista-18.jpg', 1064, 721],
-        ['assets/img/coche/trasera-derecha.jpg', 699, 454]
+        ['assets/img/coche/frontal.jpg', 699, 454, 'Monoplaza del UPCT Racing Team visto de frente, en la línea de salida del circuito'],
+        ['assets/img/competicion/pista-14.jpg', 1022, 689, 'El equipo comenta el motor del monoplaza en el box'],
+        ['assets/img/competicion/pista-17.jpg', 766, 1018, 'Monoplazas alineados en la recta de salida del circuito, bajo el cartel de bienvenida de Formula Student Spain'],
+        ['assets/img/coche/con-el-equipo.jpg', 699, 454, 'El equipo del UPCT Racing Team posando junto al monoplaza en la línea de salida'],
+        ['assets/img/competicion/pista-18.jpg', 1064, 721, 'El piloto sentado en la cabina del monoplaza hablando con el equipo'],
+        ['assets/img/coche/trasera-derecha.jpg', 699, 454, 'Parte trasera y costado derecho del monoplaza, con el motor y el depósito a la vista']
       ];
       feed.innerHTML = '<ul class="insta__grid" role="list">' + fotos.map(function (f) {
         return '<li><a href="' + esc(instaUrl) + '" target="_blank" rel="noopener noreferrer" aria-label="Ver el perfil de Instagram del equipo (se abre en una pestaña nueva)">' +
-          '<img src="' + esc(f[0]) + '" width="' + f[1] + '" height="' + f[2] + '" alt="" loading="lazy" decoding="async"></a></li>';
+          '<img src="' + esc(f[0]) + '" width="' + f[1] + '" height="' + f[2] + '" alt="' + esc(f[3]) + '" loading="lazy" decoding="async"></a></li>';
       }).join('') + '</ul>';
     }
   }

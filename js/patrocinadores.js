@@ -31,7 +31,7 @@
     return '<span class="sponsor__logo">' +
       '<img class="sponsor__mono" src="' + esc(s.logo) + '" alt="' + esc(name) + '" title="' + esc(name) + '"' + dims +
         ' loading="lazy" decoding="async" data-name="' + esc(name) + '">' +
-      '<img class="sponsor__color" src="' + esc(color) + '" alt=""' + dims + ' loading="lazy" decoding="async" aria-hidden="true">' +
+      '<img class="sponsor__color" src="' + esc(color) + '" alt="' + esc(name) + '"' + dims + ' loading="lazy" decoding="async" aria-hidden="true">' +
     '</span>';
   }
 

@@ -22,7 +22,9 @@
   var EMPTY_SLOTS = 3;
 
   function photosMarkup(dept) {
-    var fotos = dept.fotos || [];
+    /* Si hay archivos en assets/img/garaje/<id-del-departamento>/, esas son las fotos (las genera el build en
+       data/garaje-fotos.js); si no, valen las de «fotos» en data/departments-garage.js. */
+    var fotos = (UPCT.garajeFotos && UPCT.garajeFotos[dept.id]) || dept.fotos || [];
     if (!fotos.length) {
       /* Sin fotos todavía: tres huecos en blanco, listos para rellenar */
       var slots = '';
