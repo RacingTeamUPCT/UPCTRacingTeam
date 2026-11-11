@@ -156,6 +156,17 @@
     if (value) { el.textContent = value; }
   });
 
+  /* Tamaño del dossier en PDF («PDF · 2,3 MB» / «PDF · 2.3 MB»), leído de data/dossier.js */
+  function fillDossierSize() {
+    var bytes = UPCT.dossier && UPCT.dossier.bytes;
+    if (!bytes) { return; }
+    var mb = (bytes / 1048576).toFixed(1);
+    var text = 'PDF · ' + (UPCT.i18n && UPCT.i18n.lang === 'en' ? mb : mb.replace('.', ',')) + ' MB';
+    Array.prototype.forEach.call(d.querySelectorAll('[data-dossier-size]'), function (el) { el.textContent = text; });
+  }
+  fillDossierSize();
+  d.addEventListener('upct:lang', fillDossierSize);
+
   /* Iconos: <span data-icon="arrow"></span> */
   Array.prototype.forEach.call(d.querySelectorAll('[data-icon]'), function (el) {
     el.innerHTML = UPCT.icon(el.getAttribute('data-icon'));

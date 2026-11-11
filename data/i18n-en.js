@@ -241,6 +241,11 @@ UPCT.i18nEN = {
     "¿Quieres patrocinarnos?": "Want to sponsor us?",
     "Si tu empresa o institución quiere formar parte del proyecto, escríbenos y te contamos cómo colaborar.": "If your company or institution would like to be part of the project, write to us and we will tell you how to collaborate.",
     "Hablemos": "Let's talk",
+    "Descarga nuestro dossier": "Download our dossier",
+    "Todo lo que necesitas saber sobre el equipo, el coche y las formas de colaborar, en un solo PDF.": "Everything you need to know about the team, the car and the ways to collaborate, in a single PDF.",
+    "Descargar dossier": "Download dossier",
+    "Guardar el PDF": "Save the PDF",
+    "(PDF; se abre en una pestaña nueva)": "(PDF; opens in a new tab)",
 
     /* ---------- Contacto ---------- */
     "¿Quieres colaborar, patrocinarnos o simplemente conocernos? Escríbenos.": "Want to collaborate, sponsor us or simply get to know us? Write to us.",

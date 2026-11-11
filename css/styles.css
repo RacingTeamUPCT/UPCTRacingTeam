@@ -1796,6 +1796,9 @@ html.is-leaving main, html.is-leaving .site-footer { opacity: 0; transition: opa
 .patro__cta .btn { background: var(--c-pure-white); color: var(--c-blue); }
 .patro__cta .btn::before { background: var(--c-sky-soft); }
 @media (max-width: 760px) { .patro__cta { grid-template-columns: 1fr; } }
+.patro__cta .hero__actions { margin-top: 0; }                          /* «Hablemos» + «Descargar dossier» juntos, alineados con el texto */
+.patro__cta .btn--ghost { background: var(--c-sky); color: var(--c-ink); }
+.patro__cta .btn--ghost::before { background: var(--c-sky-soft); }
 
 /* Patrocinadores: dónde va tu marca */
 .mapa { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 2rem clamp(2rem, 5vw, 4rem); align-items: center; }
