@@ -86,10 +86,23 @@
     return '<span class="brand__text">' + wordmark + '<span class="brand__pending">[PENDIENTE: logo]</span></span>';
   }
 
+  /* Ejecuta fn cuando el documento ya está leído (si ya lo está, al instante) */
+  function whenParsed(fn) {
+    if (document.readyState === 'loading') { document.addEventListener('DOMContentLoaded', fn, { once: true }); } else { fn(); }
+  }
+
   class SiteHeader extends HTMLElement {
     connectedCallback() {
       if (this.getAttribute('data-ready')) { return; }
       this.setAttribute('data-ready', '1');
+
+      /* Página generada por el build: la cabecera ya viene escrita en el HTML (el navegador crea este elemento ANTES de leer
+         su contenido, así que no se vuelve a pintar: saldría duplicada). Solo se enlazan los eventos del selector de idioma. */
+      if (this.hasAttribute('data-prerendered')) {
+        var host = this;
+        whenParsed(function () { bindLang(host); });
+        return;
+      }
 
       var current = this.getAttribute('current') || '';
       var name = site.nombre || 'UPCT Racing Team';
@@ -234,6 +247,7 @@
     connectedCallback() {
       if (this.getAttribute('data-ready')) { return; }
       this.setAttribute('data-ready', '1');
+      if (this.hasAttribute('data-prerendered')) { return; }   /* pie ya escrito por el build (ver <site-header>) */
 
       var name = site.nombre || 'UPCT Racing Team';
       var words = name.split(' ');

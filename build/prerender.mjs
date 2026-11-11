@@ -74,6 +74,8 @@ export function cleanRuntime(document) {
   ['data-ready', 'data-reveal-bound', 'data-i18n-done'].forEach((a) => {
     document.querySelectorAll('[' + a + ']').forEach((e) => e.removeAttribute(a));
   });
+  /* Cabecera y pie ya vienen escritos: el navegador no debe volver a pintarlos (ver js/components.js) */
+  document.querySelectorAll('site-header, site-footer').forEach((e) => e.setAttribute('data-prerendered', ''));
   document.querySelectorAll('.is-visible, .is-instant').forEach((e) => {
     e.classList.remove('is-visible', 'is-instant');
     if (!e.getAttribute('class')) { e.removeAttribute('class'); }
