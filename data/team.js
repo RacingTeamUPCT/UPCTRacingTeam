@@ -143,7 +143,7 @@ UPCT.team = {
         { nombre: "Sergio Alcaraz",    foto: "dinamica-sergio-alcaraz.png", original: true, linkedin: "" },
         { nombre: "Sergio de Haro",    foto: "dinamica-sergio-de-haro.png", original: true, linkedin: "" },
         { nombre: "Sofía Orenes",      foto: "dinamica-sofia-orenes.png", original: true, linkedin: "" },
-        { nombre: "Salsabi Raissouni", foto: "dinamica-06.svg", linkedin: "" },
+        { nombre: "Salsabi Raissouni", foto: "dinamica-salsabi-raissouni.png", original: true, linkedin: "" },
         { nombre: "Vicente Morales",   foto: "dinamica-vicente-morales.png", original: true, linkedin: "" },
         { nombre: "Mario Serrano",     foto: "dinamica-mario-serrano.png", original: true, linkedin: "" },
         { nombre: "Jaime Jover",       foto: "dinamica-09.svg", linkedin: "" }
