@@ -87,9 +87,16 @@
             <p class="field__error" id="cf-mensaje-error" hidden></p>
           </div>
 
+          <!-- Trampa antispam invisible: una persona no la ve ni la rellena; los robots sí. Si llega con contenido, el mensaje se descarta. -->
+          <div class="visually-hidden" aria-hidden="true">
+            <label for="cf-web">No rellenar este campo</label>
+            <input id="cf-web" name="sitio_web" type="text" tabindex="-1" autocomplete="off">
+          </div>
+
           <div class="form__actions">
-            <button class="btn" type="submit">Enviar mensaje <span data-icon="arrow"></span></button>
-            <p class="form__hint">Todos los campos son obligatorios. Al enviar se abrirá tu aplicación de correo con el mensaje ya preparado.</p>
+            <button class="btn" type="submit" id="cf-send">Enviar mensaje <span data-icon="arrow"></span></button>
+            <button class="btn btn--ghost" type="button" id="cf-mailto">Abrir en mi app de correo</button>
+            <p class="form__hint">Todos los campos son obligatorios. «Enviar mensaje» lo manda desde aquí; con «Abrir en mi app de correo» se abrirá tu aplicación de correo con el mensaje ya preparado.</p>
           </div>
           <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
         </form>

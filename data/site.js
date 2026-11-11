@@ -103,13 +103,19 @@ UPCT.site = {
   ],
 
   /* Contacto.
-     · email: dirección que se muestra en la web (con botón para copiarla).
-     · formulario: dirección (endpoint) de un servicio de formularios, p. ej. Formspree: "https://formspree.io/f/xxxxxxxx".
-       Con ella, el formulario ENVÍA el mensaje al correo del equipo y muestra «Mensaje enviado».
-       Mientras esté vacía ("") el formulario abre la aplicación de correo del visitante (mailto), como antes.
-       [PENDIENTE: crear el formulario en el servicio elegido y pegar aquí su dirección] */
+     · email: dirección que se muestra en la web (con botón para copiarla) y a la que llegan los mensajes.
+     · web3formsKey: clave pública («Access Key») de Web3Forms, que hace funcionar el botón «Enviar mensaje» (envío directo
+       desde la web, sin abrir el correo). Cómo conseguirla (1 minuto, gratis):
+         1. Entra en https://web3forms.com, escribe upctracingteam@gmail.com y pulsa «Create Access Key».
+         2. Te llega un correo a esa dirección con la clave (una cadena tipo «xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx»).
+         3. Pégala aquí entre las comillas. Es pública por diseño (no es una contraseña); para que nadie más la use, en el panel
+            de Web3Forms puedes limitarla a tu dominio (upctracingteam.com).
+       Mientras esté vacía, «Enviar mensaje» avisa de que el envío directo no está activado y queda «Abrir en mi app de correo».
+     · formulario: alternativa a Web3Forms: dirección (endpoint) de otro servicio, p. ej. Formspree "https://formspree.io/f/xxxxxxxx".
+       [PENDIENTE: pegar aquí la clave de Web3Forms] */
   contacto: {
     email: "upctracingteam@gmail.com",
+    web3formsKey: "",
     formulario: ""
   },
 

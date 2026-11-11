@@ -2,7 +2,7 @@
    UPCT Racing Team — Contacto
    · Pinta correo, redes y dirección desde data/site.js (lo que falte → [PENDIENTE: …])
    · Incrusta el mapa de Google Maps (iframe de embed, sin API key)
-   · Formulario con validación accesible; al enviar abre el cliente de correo (mailto)
+   · Formulario con validación accesible: «Enviar mensaje» (directo desde la web) y «Abrir en mi app de correo» (mailto)
    ========================================================================== */
 (function () {
   'use strict';
@@ -68,7 +68,12 @@
     mapBox.hidden = true;
   }
 
-  /* ---------- Formulario ---------- */
+  /* ---------- Formulario ----------
+     Dos formas de enviar el mismo mensaje:
+       · «Enviar mensaje»            → se envía desde la web, sin salir de ella, al correo del equipo (Web3Forms, o el
+                                       servicio de data/site.js → contacto.formulario).
+       · «Abrir en mi app de correo» → abre la aplicación de correo del visitante con el mensaje preparado (mailto).
+     Antispam invisible: campo trampa («sitio_web») que una persona no ve; si llega relleno, el mensaje se descarta. */
   var fields = {
     nombre:  { el: form.elements.nombre,  msg: 'Escribe tu nombre.',
                ok: function (v) { return v.trim().length >= 2; } },
@@ -79,6 +84,13 @@
     mensaje: { el: form.elements.mensaje, msg: 'Escribe tu mensaje (mínimo 10 caracteres).',
                ok: function (v) { return v.trim().length >= 10; } }
   };
+  var sendBtn = document.getElementById('cf-send');
+  var mailBtn = document.getElementById('cf-mailto');
+  var honeypot = form.elements.sitio_web;
+  var webKey = ((site.contacto || {}).web3formsKey || '').trim();
+  var endpoint = ((site.contacto || {}).formulario || '').trim();
+  var canSend = !!webKey || /^https:\/\//.test(endpoint);
+  var sending = false;
 
   /* Desde Patrocinadores llega ?asunto=… para rellenar el asunto */
   try {
@@ -123,11 +135,10 @@
     });
   });
 
-  form.addEventListener('submit', function (e) {
-    e.preventDefault();
+  /* Valida los cuatro campos; devuelve sus valores, o null si alguno falla (y deja el foco en el primero) */
+  function readValid() {
     var firstInvalid = null;
     var values = {};
-
     Object.keys(fields).forEach(function (key) {
       var f = fields[key];
       values[key] = f.el.value;
@@ -135,48 +146,100 @@
       setError(key, valid ? '' : f.msg);
       if (!valid && !firstInvalid) { firstInvalid = f.el; }
     });
-
     if (firstInvalid) {
       say('Revisa los campos marcados antes de enviar.', true);
       firstInvalid.focus();
-      return;
+      return null;
     }
     if (!email) {
       say('Todavía no hay un correo de destino configurado ' + UPCT.pendiente('correo del equipo') +
-        '. Cuando se añada en data/site.js, este formulario abrirá tu aplicación de correo con el mensaje preparado.', true);
-      return;
+        '. Cuando se añada en data/site.js, este formulario podrá enviar el mensaje.', true);
+      return null;
     }
-    /* Con un servicio de formularios configurado (data/site.js → contacto.formulario) el mensaje se ENVÍA desde aquí */
-    var endpoint = ((site.contacto || {}).formulario || '').trim();
-    if (/^https:\/\//.test(endpoint) && window.fetch) {
-      var submitBtn = form.querySelector('[type="submit"]');
-      if (submitBtn) { submitBtn.disabled = true; }
-      say('Enviando…', false);
-      window.fetch(endpoint, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-        body: JSON.stringify({ nombre: values.nombre.trim(), email: values.correo.trim(), _replyto: values.correo.trim(), asunto: values.asunto.trim(), mensaje: values.mensaje.trim() })
-      }).then(function (res) {
-        if (!res.ok) { throw new Error('HTTP ' + res.status); }
-        form.reset();
-        say('✓ Mensaje enviado. Te responderemos lo antes posible.', false);
-      }).catch(function () {
-        say('No hemos podido enviar el mensaje. Prueba otra vez o escríbenos directamente a ' + esc(email) + '.', true);
-      }).then(function () { if (submitBtn) { submitBtn.disabled = false; } });
-      return;
-    }
+    return values;
+  }
 
+  function setSending(on) {
+    sending = on;
+    [sendBtn, mailBtn].forEach(function (b) { if (b) { b.disabled = on; } });
+    if (sendBtn) { if (on) { sendBtn.setAttribute('aria-busy', 'true'); } else { sendBtn.removeAttribute('aria-busy'); } }
+  }
+
+  /* «Enviar mensaje»: envío directo desde la web */
+  function sendDirect(values) {
+    var url, payload;
+    if (webKey) {
+      url = 'https://api.web3forms.com/submit';
+      payload = {
+        access_key: webKey,
+        subject: values.asunto.trim(),
+        from_name: 'Web UPCT Racing Team',
+        name: values.nombre.trim(),
+        email: values.correo.trim(),
+        message: values.mensaje.trim()
+      };
+    } else {
+      url = endpoint;
+      payload = { nombre: values.nombre.trim(), email: values.correo.trim(), _replyto: values.correo.trim(), asunto: values.asunto.trim(), mensaje: values.mensaje.trim() };
+    }
+    setSending(true);
+    say('Enviando…', false);
+    var timer = null, opts = {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify(payload)
+    };
+    if (window.AbortController) {                 /* si el servicio no responde en 20 s, se avisa del error */
+      var ctl = new AbortController();
+      opts.signal = ctl.signal;
+      timer = window.setTimeout(function () { ctl.abort(); }, 20000);
+    }
+    window.fetch(url, opts).then(function (res) {
+      return res.json().catch(function () { return {}; }).then(function (json) {
+        if (!res.ok || json.success === false) { throw new Error('HTTP ' + res.status); }
+      });
+    }).then(function () {
+      form.reset();
+      say('✓ Mensaje enviado. Te responderemos lo antes posible.', false);
+    }).catch(function () {
+      say('No hemos podido enviar el mensaje. Prueba otra vez o escríbenos directamente a ' + esc(email) + '.', true);
+    }).then(function () {
+      if (timer) { window.clearTimeout(timer); }
+      setSending(false);
+    });
+  }
+
+  /* «Abrir en mi app de correo»: el comportamiento de siempre (mailto) */
+  function openMailApp(values) {
     say('Abriendo tu aplicación de correo… Si no se abre, escríbenos directamente a ' + esc(email) + '.', false);
     window.location.href = buildMailto(email, values);
+  }
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    if (sending) { return; }
+    var values = readValid();
+    if (!values) { return; }
+    if (honeypot && honeypot.value) {             /* robot: se finge el envío y no se manda nada */
+      form.reset();
+      say('✓ Mensaje enviado. Te responderemos lo antes posible.', false);
+      return;
+    }
+    if (!canSend || !window.fetch) {
+      say('El envío directo aún no está activado ' + UPCT.pendiente('clave del formulario en data/site.js') +
+        '. Mientras tanto, usa «Abrir en mi app de correo» o escríbenos a ' + esc(email) + '.', true);
+      return;
+    }
+    sendDirect(values);
   });
 
-  /* Si el formulario envía por sí solo, el aviso de «se abrirá tu aplicación de correo» sobra */
-  (function () {
-    var ep = ((site.contacto || {}).formulario || '').trim();
-    var hint = form.querySelector('.form__hint');
-    if (hint && /^https:\/\//.test(ep)) { hint.textContent = 'Todos los campos son obligatorios.'; }
-  })();
-
+  if (mailBtn) {
+    mailBtn.addEventListener('click', function () {
+      if (sending) { return; }
+      var values = readValid();
+      if (values) { openMailApp(values); }
+    });
+  }
   /* Botón «Copiar» del correo */
   var copyBtn = document.getElementById('copy-mail');
   if (copyBtn) {
