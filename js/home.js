@@ -63,42 +63,41 @@
     }).join('');
     if (!cifras.length) { $('cifras').hidden = true; }
 
-    /* Entrada de los números: cambian rápido al azar (~1,3 s) y se paran en la cifra real, una tras otra */
+    /* Entrada de los números: cuentan desde 0 hasta la cifra real en 1,8 s con una curva easeOut (rápido al principio,
+       más lento al final) y todos terminan a la vez. Se lanza UNA sola vez, cuando la franja entra en pantalla.
+       La cifra final ya está escrita en el HTML (sin JavaScript, para Google o si algo falla se ve siempre correcta)
+       y con «reducir movimiento» activado no hay animación. Se conserva cualquier prefijo o sufijo («+», «%»…). */
     var nums = Array.prototype.slice.call(grid.querySelectorAll('.cifra__num'));
     var calm = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    function spin(el, delay) {
-      var finalText = el.getAttribute('data-final');
-      var len = finalText.length;
-      var DURATION = 1150;
+    var COUNT_MS = 1800;
+    function easeOut(t) { return 1 - Math.pow(1 - t, 3); }
+    var counters = nums.map(function (el) {
+      var finalText = el.getAttribute('data-final') || el.textContent;
+      var m = /^(\D*)(\d[\d.,]*)(\D*)$/.exec(finalText);
       el.setAttribute('aria-label', finalText);
+      return { el: el, finalText: finalText, pre: m ? m[1] : '', suf: m ? m[3] : '', value: m ? parseInt(m[2].replace(/[.,]/g, ''), 10) : NaN };
+    }).filter(function (c) { return !isNaN(c.value); });
+
+    function countUp() {
       /* Con temporizadores (no con requestAnimationFrame) para que termine siempre a tiempo, aunque la pestaña vaya lenta */
-      window.setTimeout(function () {
-        var begin = Date.now();
-        el.setAttribute('aria-hidden', 'true');
-        var iv = window.setInterval(function () {
-          if (Date.now() - begin >= DURATION) {
-            window.clearInterval(iv);
-            el.textContent = finalText;
-            el.removeAttribute('aria-hidden');
-            return;
-          }
-          var s = '';
-          for (var i = 0; i < len; i++) { s += Math.floor(Math.random() * 10); }
-          el.textContent = s;   /* un número nuevo cada ~55 ms */
-        }, 55);
-      }, delay);
+      var begin = Date.now();
+      var iv = window.setInterval(function () {
+        var t = Math.min(1, (Date.now() - begin) / COUNT_MS);
+        counters.forEach(function (c) { c.el.textContent = t < 1 ? c.pre + Math.round(c.value * easeOut(t)) + c.suf : c.finalText; });
+        if (t >= 1) {
+          window.clearInterval(iv);
+          counters.forEach(function (c) { c.el.removeAttribute('aria-hidden'); });
+        }
+      }, 16);
     }
-    if (nums.length && !calm && 'IntersectionObserver' in window) {
-      /* Arranca en cuanto se ve un poco la franja (o, si ya está a la vista al cargar, al instante); los números reales
-         están siempre en el HTML, así que nunca se queda ningún cero a medias */
-      var seen = false;
-      function run() {
-        if (seen) { return; }
-        seen = true;
-        nums.forEach(function (el, i) { spin(el, i * 90); });
-      }
+    if (counters.length && !calm && 'IntersectionObserver' in window) {
+      counters.forEach(function (c) { c.el.setAttribute('aria-hidden', 'true'); c.el.textContent = c.pre + '0' + c.suf; });
+      var started = false;
       new IntersectionObserver(function (entries, obs) {
-        if (entries.some(function (e) { return e.isIntersecting; })) { obs.disconnect(); run(); }
+        if (started || !entries.some(function (e) { return e.isIntersecting; })) { return; }
+        started = true;
+        obs.disconnect();
+        countUp();
       }, { threshold: 0, rootMargin: '0px 0px -8% 0px' }).observe($('cifras'));
     }
   }
