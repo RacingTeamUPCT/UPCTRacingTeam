@@ -115,7 +115,7 @@ UPCT.site = {
        [PENDIENTE: pegar aquí la clave de Web3Forms] */
   contacto: {
     email: "upctracingteam@gmail.com",
-    web3formsKey: "",
+    web3formsKey: "270270e2-afa8-4b66-ae13-50c3defea7bd",
     formulario: ""
   },
 
