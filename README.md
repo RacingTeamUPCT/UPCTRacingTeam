@@ -179,9 +179,9 @@ queda en español. Las palabras iguales en los dos idiomas (Formula Student, Tea
 Para enseñar fotos de cómo trabaja un departamento basta con **añadir archivos** (`.jpg`, `.png`, `.webp`) a su carpeta, p. ej.
 `assets/img/garaje/motor/montaje-del-motor.jpg`; los ids son los de `data/departments-garage.js` (`marketing`, `motor`, `aerodinamica`, `chasis`,
 `transmision-frenos`, `electrica`, `dinamica`, `cockpit`, `id`). El build las detecta, mide y las enseña en el desplegable de ese departamento,
-por orden alfabético del nombre del archivo. El texto alternativo sale del nombre del archivo (`montaje-del-motor.jpg` → «Montaje del motor»);
+por orden alfabético del nombre del archivo, y delante de las que haya sueltas en `data/departments-garage.js` (campo `fotos`). El texto alternativo sale del nombre del archivo (`montaje-del-motor.jpg` → «Montaje del motor»);
 para uno propio (y su versión en inglés) crea `alt.json` en la carpeta: `{ "montaje-del-motor.jpg": { "es": "…", "en": "…" } }`.
-Mientras una carpeta esté vacía no cambia nada en la web.
+Un departamento sin fotos no enseña ninguna galería (ni huecos en blanco): solo se ven fotos reales.
 
 ### Fotos del coche → `assets/img/coche/` + `data/coche.js`
 Las 6 fotos actuales (frontal, delantera izquierda, lateral izquierdo, con el equipo, trasera derecha y lateral derecho) están

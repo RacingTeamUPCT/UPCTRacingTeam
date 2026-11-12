@@ -2,7 +2,7 @@
    UPCT Racing Team — Garaje
    Pinta la lista de departamentos desde data/departments-garage.js.
    Cada fila es un desplegable (acordeón): al abrirla se ve la explicación a fondo
-   del departamento (campo "detalle"), un hueco para fotos (campo "fotos") y un
+   del departamento (campo "detalle"), sus fotos (solo si las hay) y un
    enlace a las personas del departamento en equipo.html#ancla.
    · Solo hay uno abierto a la vez. garaje.html#motor abre «Motor» directamente.
 
@@ -19,24 +19,18 @@
   if (!data || !list) { return; }
 
   var esc = UPCT.esc;
-  var EMPTY_SLOTS = 3;
 
   function photosMarkup(dept) {
-    /* Si hay archivos en assets/img/garaje/<id-del-departamento>/, esas son las fotos (las genera el build en
-       data/garaje-fotos.js); si no, valen las de «fotos» en data/departments-garage.js. */
-    var fotos = (UPCT.garajeFotos && UPCT.garajeFotos[dept.id]) || dept.fotos || [];
-    if (!fotos.length) {
-      /* Sin fotos todavía: tres huecos en blanco, listos para rellenar */
-      var slots = '';
-      for (var k = 0; k < EMPTY_SLOTS; k++) { slots += '<li class="garage-photos__slot" aria-hidden="true"></li>'; }
-      return '<ul class="garage-photos garage-photos--empty" role="list">' + slots + '</ul>';
-    }
+    /* Fotos del departamento: primero las de la carpeta assets/img/garaje/<id-del-departamento>/ (las detecta el build y las deja
+       en data/garaje-fotos.js) y después las de «fotos» en data/departments-garage.js. Solo se muestran fotos reales: sin fotos
+       no aparece ninguna galería y nunca hay huecos en blanco. */
+    var fotos = ((UPCT.garajeFotos && UPCT.garajeFotos[dept.id]) || []).concat(dept.fotos || []).filter(Boolean);
+    if (!fotos.length) { return ''; }
     return '<ul class="garage-photos" role="list">' + fotos.map(function (f) {
-      /* null = hueco en blanco reservado para una foto que aún no está */
-      if (!f) { return '<li class="garage-photos__slot" aria-hidden="true"></li>'; }
       /* ancho/alto opcionales: con ellos el marco toma la proporción de la foto (sin recorte) */
       var dims = (f.ancho && f.alto) ? ' width="' + esc(f.ancho) + '" height="' + esc(f.alto) + '"' : '';
-      return '<li class="garage-photos__item"><img src="' + esc(f.src) + '" alt="' + esc(f.alt || '') + '"' + dims + ' loading="lazy" decoding="async"></li>';
+      var alt = (UPCT.i18n && UPCT.i18n.lang === 'en' && f.en) ? f.en : (f.alt || '');   /* «en»: descripción en inglés (opcional) */
+      return '<li class="garage-photos__item"><img src="' + esc(f.src) + '" alt="' + esc(alt) + '"' + dims + ' loading="lazy" decoding="async"></li>';
     }).join('') + '</ul>';
   }
 

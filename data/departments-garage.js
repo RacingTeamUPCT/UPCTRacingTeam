@@ -10,8 +10,8 @@
    · url           enlace «Ver al equipo del departamento» (la sección en equipo.html), dentro del desplegable
    · detalle       EXPLICACIÓN A FONDO que se ve al abrir el departamento en Garaje: una lista de
                    párrafos, p. ej. ["Primer párrafo.", "Segundo párrafo."]. Vacío = se muestra [PENDIENTE].
-   · fotos         (poner null en una posición deja ese hueco en blanco) fotos del desplegable: [{ src: "assets/img/garaje/motor-1.jpg", alt: "Descripción" }, …].
-                   Vacío = se muestran tres huecos en blanco hasta que lleguen las fotos.
+   · fotos         fotos sueltas del desplegable: [{ src: "assets/img/garaje/motor-1.jpg", alt: "Descripción" }, …]. Lo normal es no usarlo:
+                   basta con soltar las fotos en assets/img/garaje/<id-del-departamento>/ (ver README). Sin fotos no se muestra nada.
    · zonaCoche     FASE 2 — VACÍO a propósito. Cuando exista el modelo 3D (coche.glb),
                    aquí se escribirá el nombre de la malla / zona del coche que se
                    asocia a este departamento (clic en la zona → ir a su departamento).
@@ -81,11 +81,7 @@ UPCT.garaje = {
       url: "equipo.html#electrica",
       zonaCoche: "",
       detalle: ["Se encarga de todo lo que tiene parte eléctrica y electrónica del coche: el cableado, la electrónica de control, los sensores y la adquisición de datos. Es el sistema nervioso del monoplaza, que conecta al resto de departamentos y permite analizar cómo se comporta el coche en pista."],
-      fotos: [
-        { src: "assets/img/garaje/electrica-equipo.jpg",   ancho: 2000, alto: 1500, alt: "El equipo de Eléctrica posando en el taller" },
-        { src: "assets/img/garaje/electrica-taller-1.jpg", ancho: 1500, alto: 2000, alt: "Integrantes de Eléctrica trabajando con el cableado del coche y un portátil" },
-        { src: "assets/img/garaje/electrica-taller-2.jpg", ancho: 1500, alto: 2000, alt: "Integrantes de Eléctrica reunidos alrededor de la mesa de trabajo del taller" }
-      ]
+      fotos: []     /* las fotos de Eléctrica están en assets/img/garaje/electrica/ (se leen solas al hacer el build) */
     },
     {
       id: "dinamica",
@@ -105,8 +101,7 @@ UPCT.garaje = {
       url: "equipo.html#cockpit",
       zonaCoche: "",
       detalle: ["Se encarga de la seguridad y de la ergonomía del habitáculo del piloto. Diseña el puesto de conducción para que sea seguro y cómodo, y para que asiento, volante y pedales queden al alcance justo del piloto, que así puede concentrarse en conducir de principio a fin."],
-      fotos: [
-        null,   // hueco grande de arriba: en blanco hasta que llegue la foto
+      fotos: [   /* van detrás de la de assets/img/garaje/cockpit/ */
         { src: "assets/img/garaje/cockpit-taller-1.jpg", ancho: 1500, alto: 2000, alt: "Integrantes del equipo trabajando en la estructura del monoplaza en el taller" },
         { src: "assets/img/garaje/cockpit-taller-2.jpg", ancho: 1500, alto: 2000, alt: "Integrantes del equipo montando piezas en el chasis del monoplaza" }
       ]
