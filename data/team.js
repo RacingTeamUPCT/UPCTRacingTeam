@@ -175,7 +175,7 @@ UPCT.team = {
       miembros: [
         /* I+D no tiene coordinador: coordinador: false quita la etiqueta al primer miembro */
         { nombre: "Ginés Cerón",       foto: "id-gines-ceron.png", original: true, coordinador: false, linkedin: "" },
-        { nombre: "Gonzalo Sánchez",   foto: "id-03.svg", linkedin: "" }
+        { nombre: "Gonzalo Sánchez",   foto: "id-gonzalo-sanchez.png", original: true, linkedin: "" }
       ]
     }
   ]
